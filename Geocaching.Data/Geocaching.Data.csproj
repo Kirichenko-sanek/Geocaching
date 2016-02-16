@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0E974009-962B-4601-AEAB-B390B4A21617}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Geocaching.Data</RootNamespace>
+    <AssemblyName>Geocaching.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataContext.cs" />
+    <Compile Include="Mapping\AddressMap.cs" />
+    <Compile Include="Mapping\CacheMap.cs" />
+    <Compile Include="Mapping\CommentMap.cs" />
+    <Compile Include="Mapping\ListOfVisitedCachesMap.cs" />
+    <Compile Include="Mapping\PhotoMap.cs" />
+    <Compile Include="Mapping\PhotoOfCachesMap.cs" />
+    <Compile Include="Mapping\PhotoOfListOfVisitedCachesMap.cs" />
+    <Compile Include="Mapping\PhotoOfUserMap.cs" />
+    <Compile Include="Mapping\RolesMap.cs" />
+    <Compile Include="Mapping\UserInRolesMap.cs" />
+    <Compile Include="Mapping\UserMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AddressRepository.cs" />
+    <Compile Include="Repository\CacheRepository.cs" />
+    <Compile Include="Repository\CommentRepository.cs" />
+    <Compile Include="Repository\ListOfVisitedCachesRepository.cs" />
+    <Compile Include="Repository\PhotoOfCachesRepository.cs" />
+    <Compile Include="Repository\PhotoOfListOfVisitedCachesRepository.cs" />
+    <Compile Include="Repository\PhotoOfUserRepository.cs" />
+    <Compile Include="Repository\PhotoRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\RolesRepository.cs" />
+    <Compile Include="Repository\UserInRolesRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Geocaching.BL\Geocaching.BL.csproj">
+      <Project>{8c75a9ff-db55-482a-9b48-d3b4694a33d0}</Project>
+      <Name>Geocaching.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geocaching.Core\Geocaching.Core.csproj">
+      <Project>{9117bb58-295f-4e56-a3f8-5b94de076c25}</Project>
+      <Name>Geocaching.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Geocaching.Interfases\Geocaching.Interfases.csproj">
+      <Project>{649ea05b-9f91-4c67-a7e9-e116d9980566}</Project>
+      <Name>Geocaching.Interfases</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

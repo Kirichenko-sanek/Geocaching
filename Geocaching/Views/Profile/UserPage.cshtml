@@ -1,0 +1,36 @@
+﻿@model Geocaching.Models.UserPageViewModel
+@{
+    ViewBag.Title = "hello";
+}
+
+<section id="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="testimonial-slider">
+                            <div class="single-slider">
+                                <div class="testimonial-img">
+                                    <img src="@Url.Content(Model.Photo)" alt="testimonial image"/>
+                                </div>
+                                <div class="testimonial-content">
+                                    <h3>@Model.Name</h3>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        Hello
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,9 @@
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\bin\Debug\Geocaching.BL.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\bin\Debug\Geocaching.BL.pdb
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\bin\Debug\Geocaching.Core.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\bin\Debug\Geocaching.Interfases.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\bin\Debug\Geocaching.Core.pdb
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\bin\Debug\Geocaching.Interfases.pdb
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\obj\Debug\Geocaching.BL.csprojResolveAssemblyReference.cache
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\obj\Debug\Geocaching.BL.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.BL\obj\Debug\Geocaching.BL.pdb

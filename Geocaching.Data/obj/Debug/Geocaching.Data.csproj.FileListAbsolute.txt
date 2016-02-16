@@ -1,0 +1,16 @@
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.Data.dll.config
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.Data.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.Data.pdb
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\EntityFramework.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.BL.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.Core.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.Interfases.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.BL.pdb
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.Core.pdb
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\Geocaching.Interfases.pdb
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\EntityFramework.xml
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\obj\Debug\Geocaching.Data.csprojResolveAssemblyReference.cache
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\obj\Debug\Geocaching.Data.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Data\obj\Debug\Geocaching.Data.pdb

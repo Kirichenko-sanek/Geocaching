@@ -1,0 +1,47 @@
+﻿@using Geocaching.App_GlobalResources
+@model Geocaching.Models.RegisterViewModel
+    <div class="modal-header">
+        <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">
+            <i class="fa fa-lock"></i>
+            @Resource.Registration
+        </h4>
+    </div>
+
+    @using (Html.BeginForm("Registration", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="modal-body">
+            @Html.ValidationSummary(true, "", new { @id = "text-danger" })
+            <div class="form-group">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = Resource.FirstName, @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "control-label" })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = Resource.LastName, @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "control-label" })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = Resource.Email, @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "control-label" })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = Resource.Password, @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "control-label" })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @placeholder = Resource.ConfirmPassword, @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "control-label" })
+            </div>
+            <div class="loginbox">
+                <input type="submit" value=@Resource.Register class="btn signin-btn" />
+            </div>
+
+            <div class="modal-footer footer-box">
+
+                <span><a id="login-btn" href="#">@Resource.LogIn</a></span>
+
+            </div>
+        </div>
+    }
+
