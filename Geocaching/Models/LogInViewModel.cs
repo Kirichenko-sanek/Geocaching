@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Attributes;
+using Geocaching.Filters;
 using Geocaching.Validators;
 
 namespace Geocaching.Models

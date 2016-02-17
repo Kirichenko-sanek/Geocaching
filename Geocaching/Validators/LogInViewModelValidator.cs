@@ -1,10 +1,11 @@
 ﻿using FluentValidation;
 using Geocaching.App_GlobalResources;
+using Geocaching.Filters;
 using Geocaching.Models;
 
 namespace Geocaching.Validators
 {
-    class LogInViewModelValidator : AbstractValidator<LogInViewModel>
+    public class LogInViewModelValidator : AbstractValidator<LogInViewModel>
     {
         public LogInViewModelValidator()
         {

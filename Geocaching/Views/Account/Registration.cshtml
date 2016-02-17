@@ -1,0 +1,92 @@
+﻿@using Geocaching.App_GlobalResources
+@model Geocaching.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = @Resource.Registration;
+}
+
+<section id="single-page-header">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-page-header-left">
+                        <h2>@Resource.Registration</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@using (Html.BeginForm("Registration", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-area">
+                        <p>
+                            @Html.ValidationSummary(true, "", new { @id = "text-danger" })
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = Resource.FirstName, @class = "form-control" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "control-label" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = Resource.LastName, @class = "form-control" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "control-label" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = Resource.Email, @class = "form-control" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "control-label" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@placeholder = Resource.Password, @class = "form-control"}})
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.Password, "", new {@class = "control-label"})
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @placeholder = Resource.ConfirmPassword, @class = "form-control" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "control-label" })
+                        </div>
+                    </div>
+                    <input type="submit" value=@Resource.Register class="comment-btn" />
+                </div>
+            </div>
+        </div>
+    </section>
+}

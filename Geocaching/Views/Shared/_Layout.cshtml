@@ -38,17 +38,20 @@
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="header-login">
                              @if (!HttpContext.Current.User.Identity.IsAuthenticated)
-                                {
-                                    <a class="login modal-form" data-target="#login-form" data-toggle="modal" href="#">
-                                    @Resource.LogIn / @Resource.Registration
-                                    </a>
-                                }
+                             {
+                                 <a class="login" href="/Account/LogIn">
+                                     @Resource.LogIn
+                                 </a>
+                                <a class="login" href="/Account/Registration">
+                                    @Resource.Registration
+                                </a>
+                             }
                              else
-                                {
+                             {
                                     <a class="login" href="/Account/LogOff">
                                     @Resource.LogOff
                                     </a>
-                                }
+                             }
                         </div>
                     </div>
                     
@@ -56,24 +59,7 @@
             </div>
         </div>
     </header>
-    @if (!HttpContext.Current.User.Identity.IsAuthenticated)
-    {
-        <div aria-hiden="false" role="dialog" tabindex="-1" id="login-form" class="modal leread-modal fade in">
-            <div class="modal-dialog">
-                <!-- Start login section -->
-                <div id="login-content" class="modal-content">
-                    @Html.Partial("LogIn")
-                </div>
-                <!-- Start signup section -->
-                <div id="signup-content" class="modal-content">
-                    @Html.Partial("Registration")
-                </div>
-                <div id="forgot-content" class="modal-content">
-                    @Html.Partial("PassRecovery")
-                </div>
-            </div>
-        </div>
-    }
+    
     <section id="menu-area">
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">

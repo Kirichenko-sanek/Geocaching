@@ -322,6 +322,15 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User Page.
+        /// </summary>
+        public static string UserPage {
+            get {
+                return ResourceManager.GetString("UserPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wrong format Email.
         /// </summary>
         public static string WrongFormatEmail {

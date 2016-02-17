@@ -2,9 +2,13 @@ C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\Geocaching.Core.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\Geocaching.Core.pdb
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\AutoMapper.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\EntityFramework.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\FluentValidation.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\FluentValidation.Mvc.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\AutoMapper.xml
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\EntityFramework.xml
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\FluentValidation.pdb
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\FluentValidation.xml
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\FluentValidation.Mvc.pdb
@@ -20,5 +24,6 @@ C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\ru\FluentValidation.resources.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\sv\FluentValidation.resources.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\tr\FluentValidation.resources.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\obj\Debug\Geocaching.Core.csprojResolveAssemblyReference.cache
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\obj\Debug\Geocaching.Core.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\obj\Debug\Geocaching.Core.pdb

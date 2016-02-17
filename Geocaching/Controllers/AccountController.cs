@@ -29,6 +29,11 @@ namespace Geocaching.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult Registration()
+        {
+            return View();
+        }
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -119,6 +124,11 @@ namespace Geocaching.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [AllowAnonymous]
+        public ActionResult PassRecovery()
+        {
+            return View();
+        }
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
