@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using AutoMapper;
@@ -12,18 +13,34 @@ namespace Geocaching.App_Start
     {
         public static void RegisterMapping()
         {
-            Mapper.CreateMap<User, RegisterViewModel>();
-            Mapper.CreateMap<RegisterViewModel,User>().AfterMap((p, m) =>
+            /*var registerMap = new MapperConfiguration(cfg =>
             {
-                m.first_name = p.FirstName;
-                m.last_name = p.LastName;
-                m.email = p.Email;
-            });
+                cfg.CreateMap<User, RegisterViewModel>();
+            });*/
+
+
+            Mapper.CreateMap<RegisterViewModel, User>().AfterMap((p, m) =>
+                {
+                    m.first_name = p.FirstName;
+                    m.last_name = p.LastName;
+                    m.email = p.Email;
+                });
+            
+           
+
+
+
+
 
             Mapper.CreateMap<User, UserPageViewModel>().AfterMap((p, m) =>
             {
                 m.Name = p.first_name + " " + p.last_name;
                 m.IdUserInSystem = p.id;
+            });
+
+            Mapper.CreateMap<Cache, CachePageViewModel>().AfterMap((p, m) =>
+            {
+
             });
         }
     }

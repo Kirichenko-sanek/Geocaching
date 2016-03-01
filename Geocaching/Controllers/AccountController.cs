@@ -17,10 +17,12 @@ namespace Geocaching.Controllers
     public class AccountController : Controller
     {
         private readonly IUserManager<User> _manager;
+        //private readonly IMapper _mapper;
 
-        public AccountController(IUserManager<User> manager)
+        public AccountController(IUserManager<User> manager/*,IMapper mapper*/)
         {
             _manager = manager;
+            //_mapper = mapper;
         }
 
         [AllowAnonymous]
@@ -41,6 +43,8 @@ namespace Geocaching.Controllers
         {
             try
             {
+                //var mapper = _mapper.Map()
+
                 var entity = Mapper.Map<RegisterViewModel, User>(model);
                 var user = _manager.GetUserByEmail(model.Email);
                 if (user != null) throw new Exception(Resource.EmailExist);
