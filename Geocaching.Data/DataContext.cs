@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using Geocaching.Core;
 using Geocaching.BL;
@@ -100,6 +101,37 @@ namespace Geocaching.Data
                 };
                 foreach (var photoUser in photosOfUser) context.PhotoOfUser.Add(photoUser);
                 context.SaveChanges();
+
+                var addresses = new List<Address>
+                {
+                    new Address()
+                    {
+                        longitude = 36.2913754,
+                        latitude = 50.04302158,
+                        country = "Ukraine",
+                        region = "Kharkov region",
+                        city = "Kharkiv"
+                    }
+                };
+                foreach (var address in addresses) context.Address.Add(address);
+                context.SaveChanges();
+
+                var caches = new List<Cache>
+                {
+                    new Cache()
+                    {
+                        id_user = 1,
+                        id_address = 1,
+                        name = "KHAI",
+                        description = "My university",
+                        date_of_apperance = DateTime.Now,
+                        date_of_last_visit = DateTime.Now
+                    }
+                };
+                foreach (var cache in caches) context.Caches.Add(cache);
+                context.SaveChanges();
+
+                
                 
 
                 base.Seed(context);

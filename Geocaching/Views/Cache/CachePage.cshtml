@@ -1,7 +1,53 @@
-﻿
+﻿@model Geocaching.ViewModels.CachePageViewModel
 @{
     ViewBag.Title = "CachePage";
 }
 
-<h2>CachePage</h2>
+<section id="single-page-header">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-page-header-left">
+                        <h2> @Model.Name</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="blog-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-archive-area">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="blog-archive-left">
+                                <article class="blog-news-single">
+                                    <div class="blog-news-img">
+
+                                    </div>
+                                    <div class="blog-news-title">
+                                        <p>By
+                                            @Html.ActionLink(@Model.UserName, "UserPage", "Profile", new {id = Model.IdUserCache}, null)
+                                            <span class="blog-date">@Model.DateOfApperance</span>
+                                        </p>
+                                    </div>
+                                    <div class="blog-news-details blog-single-details">
+                                        <p>@Model.Description</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="google-map">
+    <iframe src="https://maps.google.com/?hl=ru&q=50.820232,8.108625." width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</section>
 

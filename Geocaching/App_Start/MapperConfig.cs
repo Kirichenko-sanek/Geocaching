@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using AutoMapper;
+﻿using AutoMapper;
 using Geocaching.Core;
-using Geocaching.Models;
+using Geocaching.ViewModels;
 
-namespace Geocaching.App_Start
+namespace Geocaching
 {
     public class MapperConfig
     {
         public static void RegisterMapping()
         {
-            /*var registerMap = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<User, RegisterViewModel>();
-            });*/
 
-
+            Mapper.CreateMap<User, RegisterViewModel>();
+           
+            
             Mapper.CreateMap<RegisterViewModel, User>().AfterMap((p, m) =>
                 {
                     m.first_name = p.FirstName;
@@ -26,13 +19,7 @@ namespace Geocaching.App_Start
                     m.email = p.Email;
                 });
             
-           
-
-
-
-
-
-            Mapper.CreateMap<User, UserPageViewModel>().AfterMap((p, m) =>
+           Mapper.CreateMap<User, UserPageViewModel>().AfterMap((p, m) =>
             {
                 m.Name = p.first_name + " " + p.last_name;
                 m.IdUserInSystem = p.id;
@@ -40,7 +27,20 @@ namespace Geocaching.App_Start
 
             Mapper.CreateMap<Cache, CachePageViewModel>().AfterMap((p, m) =>
             {
-
+                m.IdCache = p.id;
+                m.IdUserCache = p.id_user;
+                m.Name = p.name;
+                m.Description = p.description;
+                m.DateOfApperance = p.date_of_apperance;
+                m.DateOfLastVisit = p.date_of_last_visit;
+                m.UserName = p.user.first_name + " " + p.user.last_name;
+                m.Longitude = p.address.longitude;
+                m.Latitude = p.address.latitude;
+                m.Country = p.address.country;
+                m.Region = p.address.region;
+                m.City = p.address.city;
+                m.Map = "https://www.google.com.ua/maps/place//@" + p.address.latitude + "," + p.address.longitude +
+                        "4.75z/data=!4m2!3m1!1s0x0:0x0";
             });
         }
     }

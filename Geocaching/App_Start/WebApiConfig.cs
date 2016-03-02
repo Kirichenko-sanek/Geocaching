@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 
-
-namespace Geocaching.App_Start
+namespace Geocaching
 {
     public class WebApiConfig
     {

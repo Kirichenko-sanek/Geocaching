@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Attributes;
 using Geocaching.Validators;
 
-namespace Geocaching.Models
+namespace Geocaching.ViewModels
 {
     [Validator(typeof(PassRecoveryViewModelValidator))]
     public class PassRecoveryViewModel

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Manager\ICacheManager.cs" />
     <Compile Include="Manager\IManager.cs" />
     <Compile Include="Manager\IPhotoOfUserManager.cs" />
     <Compile Include="Manager\IUserManager.cs" />

@@ -1,8 +1,7 @@
 ﻿using FluentValidation.Attributes;
-using Geocaching.Filters;
 using Geocaching.Validators;
 
-namespace Geocaching.Models
+namespace Geocaching.ViewModels
 {
     [Validator(typeof(LogInViewModelValidator))]
     public class LogInViewModel

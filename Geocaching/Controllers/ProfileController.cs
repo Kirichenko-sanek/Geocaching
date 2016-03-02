@@ -7,7 +7,7 @@ using AutoMapper;
 using Geocaching.Core;
 using Geocaching.Filters;
 using Geocaching.Interfases.Manager;
-using Geocaching.Models;
+using Geocaching.ViewModels;
 
 namespace Geocaching.Controllers
 {

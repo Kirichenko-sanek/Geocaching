@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using Geocaching.App_GlobalResources;
-using Geocaching.Models;
+using Geocaching.ViewModels;
 
 namespace Geocaching.Validators
 {

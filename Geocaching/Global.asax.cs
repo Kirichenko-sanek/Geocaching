@@ -5,7 +5,6 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using Castle.Windsor;
-using Geocaching.App_Start;
 using FluentValidation.Mvc;
 using Geocaching.Core;
 using Geocaching.CW.Installers;

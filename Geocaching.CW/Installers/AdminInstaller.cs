@@ -45,6 +45,10 @@ namespace Geocaching.CW.Installers
                 Component.For(typeof (IPhotoOfUserRepository<>))
                     .ImplementedBy(typeof (PhotoOfUserRepository<>))
                     .LifestyleTransient());
+            container.Register(
+                Component.For(typeof (ICacheRepository<>))
+                    .ImplementedBy(typeof (CacheRepository<>))
+                    .LifestyleTransient());
             ///////
 
             container.Register(
@@ -53,6 +57,8 @@ namespace Geocaching.CW.Installers
                 Component.For(typeof (IValidator<PhotoOfUser>))
                     .ImplementedBy(typeof (PhotoOfUserValidator))
                     .LifestyleTransient());
+            container.Register(
+                Component.For(typeof (IValidator<Cache>)).ImplementedBy(typeof (CacheValidator)).LifestyleTransient());
             /////
 
 
@@ -62,6 +68,8 @@ namespace Geocaching.CW.Installers
                 Component.For(typeof (IUserManager<>)).ImplementedBy(typeof (UserManager<>)).LifestyleTransient());
             container.Register(
                 Component.For(typeof (IPhotoOfUserManager<>)).ImplementedBy(typeof (PhotoOfUserManager<>)).LifestyleTransient());
+            container.Register(
+                Component.For(typeof (ICacheManager<>)).ImplementedBy(typeof (CacheManager<>)).LifestyleTransient());
             //////
 
             var controllerFactory = new WindsorControllerFactory(container.Kernel);

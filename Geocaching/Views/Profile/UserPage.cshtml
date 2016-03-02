@@ -1,5 +1,5 @@
 ﻿@using Geocaching.App_GlobalResources
-@model Geocaching.Models.UserPageViewModel
+@model Geocaching.ViewModels.UserPageViewModel
 @{
     ViewBag.Title = Resource.UserPage;
 }
@@ -28,6 +28,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         Hello
+                    </div>
+                    <div>
+                        @Html.ActionLink("Hello", "CachePage", "Cache", new { id = 1 }, null)
+
+
                     </div>
                 </div>
             </div>
