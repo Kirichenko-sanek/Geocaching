@@ -9,4 +9,3 @@ C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\obj\Debug\Geocaching.Core.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\obj\Debug\Geocaching.Core.pdb
-C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching.Core\obj\Debug\Geocaching.Core.csprojResolveAssemblyReference.cache

@@ -7,9 +7,13 @@
     <title>@ViewBag.Title - Geocaching</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/angular")
+
+
 </head>
 <body>
+
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+
     <header id="header">
         <div class="header-top">
             <div class="container">
@@ -84,13 +88,18 @@
         </nav>
     </section>
 
-
+    
     @RenderBody()
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
     @Scripts.Render("~/bundles/jqueryval")
+    
 
     @RenderSection("scripts", required: false)
+
+    <script src="/Scripts/map.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+
 </body>
 </html>

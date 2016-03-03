@@ -70,7 +70,7 @@ namespace Geocaching.Data
                     new User()
                     {
                         first_name = "Kirichenko",
-                        last_name = "Alexandr",
+                        last_name = "Alexander",
                         email = "kirichenko-sanek@mail.ru",
                         password = pass,           
                         password_salt = salt,
