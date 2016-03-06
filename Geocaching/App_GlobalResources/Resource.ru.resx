@@ -123,6 +123,12 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Подтвердить пароль</value>
   </data>
+  <data name="DateAdded" xml:space="preserve">
+    <value>Дата добавления</value>
+  </data>
+  <data name="DateOfLastVisit" xml:space="preserve">
+    <value>Дата последнего посещения</value>
+  </data>
   <data name="EditPassword" xml:space="preserve">
     <value>Редактирование пароля</value>
   </data>

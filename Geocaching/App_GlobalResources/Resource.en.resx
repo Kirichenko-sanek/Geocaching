@@ -123,6 +123,12 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+  <data name="DateAdded" xml:space="preserve">
+    <value>Date added</value>
+  </data>
+  <data name="DateOfLastVisit" xml:space="preserve">
+    <value>Date of last visit</value>
+  </data>
   <data name="EditPassword" xml:space="preserve">
     <value>Edit Password</value>
   </data>

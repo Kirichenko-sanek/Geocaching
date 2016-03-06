@@ -85,7 +85,18 @@ namespace Geocaching.Data
                 {
                     new Photo()
                     {
-                        name = "~/Images/Account/images.jpg"
+                        name = "~/Images/Account/images.jpg",
+                        date = DateTime.Now
+                    },
+                    new Photo()
+                    {
+                        name = "~/Images/Cache/123.jpg",
+                        date = DateTime.Now
+                    },
+                    new Photo()
+                    {
+                        name = "~/Images/Cache/123.jpg",
+                        date = DateTime.Now
                     }
                 };
                 foreach (var photo in photos) context.Photos.Add(photo);
@@ -123,7 +134,7 @@ namespace Geocaching.Data
                         id_user = 1,
                         id_address = 1,
                         name = "KHAI",
-                        description = "My university",
+                        description = "My university. My university. My university. My university. My university. My university. My university. My university. My university. My university. My university.",
                         date_of_apperance = DateTime.Now,
                         date_of_last_visit = DateTime.Now
                     }
@@ -131,8 +142,22 @@ namespace Geocaching.Data
                 foreach (var cache in caches) context.Caches.Add(cache);
                 context.SaveChanges();
 
-                
-                
+                var photosOfCaches = new List<PhotoOfCaches>
+                {
+                    new PhotoOfCaches()
+                    {
+                        id_cache = 1,
+                        id_photo = 2
+                    },
+                    new PhotoOfCaches()
+                    {
+                        id_cache = 1,
+                        id_photo = 3
+                    }
+                };
+                foreach (var photoCache in photosOfCaches) context.PhotoOfCaches.Add(photoCache);
+                context.SaveChanges();
+
 
                 base.Seed(context);
             }

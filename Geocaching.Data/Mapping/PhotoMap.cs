@@ -11,6 +11,7 @@ namespace Geocaching.Data.Mapping
             HasKey(m => m.id);
             Property(m => m.id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(m => m.name).IsRequired();
+            Property(m => m.date);
             ToTable("Photo");
         }
     }

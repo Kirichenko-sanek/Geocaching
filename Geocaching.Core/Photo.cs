@@ -9,6 +9,7 @@ namespace Geocaching.Core
     public class Photo : BaseEntity
     {
         public string name { get; set; }
+        public DateTime date { get; set; }
 
         public virtual List<PhotoOfUser> photo_of_user { get; set; }
         public virtual List<PhotoOfListOfVisitedCaches> photo_of_list_of_visited_caches { get; set;}

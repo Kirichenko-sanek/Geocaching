@@ -1,4 +1,5 @@
-﻿@model Geocaching.ViewModels.CachePageViewModel
+﻿@using Geocaching.App_GlobalResources
+@model Geocaching.ViewModels.CachePageViewModel
 @{
     ViewBag.Title = "CachePage";
 }
@@ -30,13 +31,18 @@
 
                                     </div>
                                     <div class="blog-news-title">
-                                        <p>By
+                                        <p>
                                             @Html.ActionLink(@Model.UserName, "UserPage", "Profile", new {id = Model.IdUserCache}, null)
-                                            <span class="blog-date">@Model.DateOfApperance</span>
+                                        </p>
+                                        <p>
+                                            <span class="blog-date">@Resource.DateAdded : @Model.DateOfApperance</span>
+                                        </p>
+                                        <p>
+                                            <span class="blog-date">@Resource.DateOfLastVisit : @Model.DateOfLastVisit</span>
                                         </p>
                                     </div>
                                     <div class="blog-news-details blog-single-details">
-                                        <p>@Model.Description</p>
+                                        <h4>@Model.Description</h4>
                                     </div>
                                 </article>
                             </div>

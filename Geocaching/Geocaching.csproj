@@ -191,6 +191,7 @@
     <Compile Include="ViewModels\CachePageViewModel.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
     <Compile Include="ViewModels\PassRecoveryViewModel.cs" />
+    <Compile Include="ViewModels\PhotoOfCachesViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\UserPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -226,6 +227,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\Account\images.jpg" />
+    <Content Include="Images\Cache\123.jpg" />
     <Content Include="Scripts\bootstrap-progressbar.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

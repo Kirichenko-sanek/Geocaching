@@ -39,8 +39,13 @@ namespace Geocaching
                 m.Country = p.address.country;
                 m.Region = p.address.region;
                 m.City = p.address.city;
-                m.Map = "https://www.google.com.ua/maps/place//@" + p.address.latitude + "," + p.address.longitude +
-                        "4.75z/data=!4m2!3m1!1s0x0:0x0";
+            });
+
+            Mapper.CreateMap<PhotoOfCaches, PhotoOfCachesViewModel>().AfterMap((p, m) =>
+            {
+                m.Id = p.photo.id;
+                m.Name = p.photo.name;
+                m.Date = p.photo.date;
             });
         }
     }

@@ -79,6 +79,24 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date added.
+        /// </summary>
+        public static string DateAdded {
+            get {
+                return ResourceManager.GetString("DateAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of last visit.
+        /// </summary>
+        public static string DateOfLastVisit {
+            get {
+                return ResourceManager.GetString("DateOfLastVisit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Password.
         /// </summary>
         public static string EditPassword {

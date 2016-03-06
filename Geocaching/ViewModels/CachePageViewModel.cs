@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Geocaching.Core;
 
 namespace Geocaching.ViewModels
 {
@@ -11,8 +13,8 @@ namespace Geocaching.ViewModels
         public DateTime DateOfApperance { get; set; }
         public DateTime DateOfLastVisit { get; set; }
         public string UserName { get; set; }
+        public List<PhotoOfCachesViewModel> Photos { get; set; } 
 
-        public string Map { get; set; }
 
         public double Longitude { get; set; }
         public double Latitude { get; set; }

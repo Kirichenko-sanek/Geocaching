@@ -13,6 +13,11 @@ namespace Geocaching.Data.Repository
         public PhotoOfCachesRepository(DataContext context) : base(context)
         {
             
-        } 
+        }
+
+        public IQueryable<PhotoOfCaches> GetPhotoOfCachesByCacheId(long idCache)
+        {
+            return _context.PhotoOfCaches.Where(x => x.id_cache == idCache);
+        }
     }
 }
