@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Geocaching.Core;
 
-namespace Geocaching.Interfases.Repository
+namespace Geocaching.Interfases.Manager
 {
-    public interface ICommentRepository<T> : IRepository<T> where T : Comment
+    public interface ICommentsManager<T> : IManager<T> where T : Comment
     {
         IQueryable<Comment> GetCommentsByCacheId(long id);
     }

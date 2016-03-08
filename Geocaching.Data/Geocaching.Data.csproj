@@ -56,7 +56,6 @@
     <Compile Include="Mapping\ListOfVisitedCachesMap.cs" />
     <Compile Include="Mapping\PhotoMap.cs" />
     <Compile Include="Mapping\PhotoOfCachesMap.cs" />
-    <Compile Include="Mapping\PhotoOfListOfVisitedCachesMap.cs" />
     <Compile Include="Mapping\PhotoOfUserMap.cs" />
     <Compile Include="Mapping\RolesMap.cs" />
     <Compile Include="Mapping\UserInRolesMap.cs" />
@@ -67,7 +66,6 @@
     <Compile Include="Repository\CommentRepository.cs" />
     <Compile Include="Repository\ListOfVisitedCachesRepository.cs" />
     <Compile Include="Repository\PhotoOfCachesRepository.cs" />
-    <Compile Include="Repository\PhotoOfListOfVisitedCachesRepository.cs" />
     <Compile Include="Repository\PhotoOfUserRepository.cs" />
     <Compile Include="Repository\PhotoRepository.cs" />
     <Compile Include="Repository\Repository.cs" />

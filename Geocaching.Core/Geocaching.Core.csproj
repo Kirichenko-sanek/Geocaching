@@ -60,7 +60,6 @@
     <Compile Include="ListOfVisitedCaches.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="PhotoOfCaches.cs" />
-    <Compile Include="PhotoOfListOfVisitedCaches.cs" />
     <Compile Include="PhotoOfUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs" />

@@ -61,6 +61,24 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Comment.
+        /// </summary>
+        public static string AddComment {
+            get {
+                return ResourceManager.GetString("AddComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string Comment {
+            get {
+                return ResourceManager.GetString("Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Congratulations, You have registered successfully.
         /// </summary>
         public static string Confirm {

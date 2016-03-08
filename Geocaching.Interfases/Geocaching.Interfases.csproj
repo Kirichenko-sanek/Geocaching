@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Manager\ICacheManager.cs" />
+    <Compile Include="Manager\ICommentsManager.cs" />
     <Compile Include="Manager\IManager.cs" />
     <Compile Include="Manager\IPhotoOfCachesManager.cs" />
     <Compile Include="Manager\IPhotoOfUserManager.cs" />
@@ -60,7 +61,6 @@
     <Compile Include="Repository\ICommentRepository.cs" />
     <Compile Include="Repository\IListOfVisitedCachesRepository.cs" />
     <Compile Include="Repository\IPhotoOfCachesRepository.cs" />
-    <Compile Include="Repository\IPhotoOfListOfVisitedCachesRepository.cs" />
     <Compile Include="Repository\IPhotoOfUserRepository.cs" />
     <Compile Include="Repository\IPhotoRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />

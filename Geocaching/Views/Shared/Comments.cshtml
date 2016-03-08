@@ -1,0 +1,12 @@
+﻿@model List<Geocaching.ViewModels.CommentsViewModel>
+
+@foreach (var comment in Model)
+{
+    <div class="blog-navigation-area">
+        <div class="blog-navigation-prev">
+            <h4>@comment.Description</h4>
+            @Html.ActionLink(@comment.UserName, "UserPage", "Profile", new { id = comment.IdUser }, null)
+            <h4>@comment.Date</h4>
+        </div>
+    </div>
+}

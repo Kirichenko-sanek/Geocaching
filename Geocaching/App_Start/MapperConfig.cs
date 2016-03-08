@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Geocaching.Core;
 using Geocaching.ViewModels;
 
@@ -46,6 +47,23 @@ namespace Geocaching
                 m.Id = p.photo.id;
                 m.Name = p.photo.name;
                 m.Date = p.photo.date;
+            });
+
+            Mapper.CreateMap<Comment, CommentsViewModel>().AfterMap((p, m) =>
+            {
+                m.Id = p.id;
+                m.IdUser = p.id_user;
+                m.IdCache = p.id_cache;
+                m.UserName = p.user.first_name + " " + p.user.last_name;
+                m.Description = p.description;
+                m.Date = p.date;
+            });
+            Mapper.CreateMap<CachePageViewModel, Comment>().AfterMap((p, m) =>
+            {
+                m.id_cache = p.IdCache;
+                m.id_user = p.IdUserCache;
+                m.description = p.NewComment;
+                m.date = DateTime.Now;
             });
         }
     }

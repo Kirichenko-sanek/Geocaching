@@ -13,6 +13,11 @@ namespace Geocaching.Data.Repository
         public CommentRepository(DataContext context) : base(context)
         {
             
-        } 
+        }
+
+        public IQueryable<Comment> GetCommentsByCacheId(long id)
+        {
+            return _context.Comments.Where(x => x.id_cache == id);
+        }
     }
 }

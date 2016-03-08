@@ -15,11 +15,6 @@ namespace Geocaching.Core
 
         public virtual User user { get; set; }
         public virtual Cache cache { get; set; }
-        public virtual List<PhotoOfListOfVisitedCaches> photo_of_list_of_visited_caches { get; set; }
 
-        ListOfVisitedCaches()
-        {
-            photo_of_list_of_visited_caches = new List<PhotoOfListOfVisitedCaches>();
-        }
     }
 }

@@ -1,0 +1,16 @@
+﻿@model List<Geocaching.ViewModels.PhotoOfCachesViewModel>
+    
+@foreach (var photo in Model)
+{
+    <div class="single-portfolio">
+        <div class="single-item">
+            <img src="@photo.Name" alt="img">
+        </div>
+        <div class="single-item-content">
+            <a class="fancybox view-icon" data-fancybox-group="gallery" href="@photo.Name"><i class="fa fa-search-plus"></i></a>
+            <div class="portfolio-title">
+                <h4>@photo.Date</h4>
+            </div>
+        </div>
+    </div>
+}

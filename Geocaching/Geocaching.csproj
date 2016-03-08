@@ -188,7 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Validators\CommentsViewModelValidator.cs" />
     <Compile Include="ViewModels\CachePageViewModel.cs" />
+    <Compile Include="ViewModels\CommentsViewModel.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
     <Compile Include="ViewModels\PassRecoveryViewModel.cs" />
     <Compile Include="ViewModels\PhotoOfCachesViewModel.cs" />
@@ -266,6 +268,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cache\CachePage.cshtml" />
+    <Content Include="Views\Shared\PhotosCache.cshtml" />
+    <Content Include="Views\Shared\Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

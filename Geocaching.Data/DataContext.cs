@@ -16,7 +16,6 @@ namespace Geocaching.Data
         public DbSet<ListOfVisitedCaches> ListOfVisitedCaches { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<PhotoOfCaches> PhotoOfCaches { get; set; }
-        public DbSet<PhotoOfListOfVisitedCaches> PhotoOfListOfVisitedCaches { get; set; }
         public DbSet<PhotoOfUser> PhotoOfUser { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<User> Users { get; set; }
@@ -36,7 +35,6 @@ namespace Geocaching.Data
             modelBuilder.Configurations.Add(new ListOfVisitedCachesMap());
             modelBuilder.Configurations.Add(new PhotoMap());
             modelBuilder.Configurations.Add(new PhotoOfCachesMap());
-            modelBuilder.Configurations.Add(new PhotoOfListOfVisitedCachesMap());
             modelBuilder.Configurations.Add(new PhotoOfUserMap());
             modelBuilder.Configurations.Add(new RolesMap());
             modelBuilder.Configurations.Add(new UserInRolesMap());
@@ -90,12 +88,12 @@ namespace Geocaching.Data
                     },
                     new Photo()
                     {
-                        name = "~/Images/Cache/123.jpg",
+                        name = "/Images/Cache/123.jpg",
                         date = DateTime.Now
                     },
                     new Photo()
                     {
-                        name = "~/Images/Cache/123.jpg",
+                        name = "/Images/Cache/123.jpg",
                         date = DateTime.Now
                     }
                 };
@@ -136,7 +134,8 @@ namespace Geocaching.Data
                         name = "KHAI",
                         description = "My university. My university. My university. My university. My university. My university. My university. My university. My university. My university. My university.",
                         date_of_apperance = DateTime.Now,
-                        date_of_last_visit = DateTime.Now
+                        date_of_last_visit = DateTime.Now,
+                        
                     }
                 };
                 foreach (var cache in caches) context.Caches.Add(cache);
@@ -157,6 +156,27 @@ namespace Geocaching.Data
                 };
                 foreach (var photoCache in photosOfCaches) context.PhotoOfCaches.Add(photoCache);
                 context.SaveChanges();
+
+                var comments = new List<Comment>
+                {
+                    new Comment()
+                    {
+                        id_user = 1,
+                        id_cache = 1,
+                        description = "Cache",
+                        date = DateTime.Now
+                    },
+                    new Comment()
+                    {
+                        id_user = 1,
+                        id_cache = 1,
+                        description = "Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache",
+                        date = DateTime.Now
+                    },
+                };
+                foreach (var coment in comments) context.Comments.Add(coment);
+                context.SaveChanges();
+                
 
 
                 base.Seed(context);

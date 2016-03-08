@@ -14,7 +14,6 @@ namespace Geocaching.Data.Mapping
             Property(m => m.discription);
             ToTable("ListOfVisitedCaches");
 
-            HasRequired(m => m.user).WithMany(m => m.list_of_visited_caches).HasForeignKey(m => m.id_user).WillCascadeOnDelete(false);
             HasRequired(m => m.cache).WithMany(m => m.list_of_visited_caches).HasForeignKey(m => m.id_cache).WillCascadeOnDelete(false);
         }
     }

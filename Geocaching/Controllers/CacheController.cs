@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using Geocaching.Core;
@@ -14,13 +15,16 @@ namespace Geocaching.Controllers
     public class CacheController : Controller
     {
         private readonly ICacheManager<Cache> _managerCache;
-        private readonly IPhotoOfCachesManager<PhotoOfCaches> _managerPhotoOfCaches; 
-        
+        private readonly IPhotoOfCachesManager<PhotoOfCaches> _managerPhotoOfCaches;
+        private readonly ICommentsManager<Comment> _managerComments;
 
-        public CacheController(ICacheManager<Cache> managerCache, IPhotoOfCachesManager<PhotoOfCaches> managerPhotoOfCaches)
+
+        public CacheController(ICacheManager<Cache> managerCache,
+            IPhotoOfCachesManager<PhotoOfCaches> managerPhotoOfCaches, ICommentsManager<Comment> managerComments)
         {
             _managerCache = managerCache;
             _managerPhotoOfCaches = managerPhotoOfCaches;
+            _managerComments = managerComments;
         }
 
         [AllowAnonymous]
@@ -39,6 +43,15 @@ namespace Geocaching.Controllers
                     photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
                 }
                 model.Photos = photos;
+                model.MainPhoto =  photos[1].Name;
+
+                var comments_cache = _managerComments.GetCommentsByCacheId(cache.id).OrderByDescending(x => x.date);
+                List<CommentsViewModel> comments = new List<CommentsViewModel>();
+                foreach (var comment in comments_cache)
+                {
+                    comments.Add(Mapper.Map<Comment, CommentsViewModel>(comment));
+                }
+                model.Comments = comments;
 
                 return View(model);
             }
@@ -50,6 +63,13 @@ namespace Geocaching.Controllers
            
         }
 
+        [AllowAnonymous]
+        public ActionResult AddComment(CachePageViewModel model)
+        {
+            var entity = Mapper.Map<CachePageViewModel, Comment>(model);
+            _managerComments.Add(entity);
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }
