@@ -74,6 +74,16 @@ namespace Geocaching.Data
                         password_salt = salt,
                         is_activated = true,
                         users = new List<UserInRoles>() {new UserInRoles() {id_roles = 1, id_user = 1}}
+                    },
+                    new User()
+                    {
+                        first_name = "Serkov",
+                        last_name = "Sergei",
+                        email = "Serkov@ser.ru",
+                        password = pass,
+                        password_salt = salt,
+                        is_activated = true,
+                        users = new List<UserInRoles>() {new UserInRoles() {id_roles = 2, id_user = 1}}
                     }
                 };
                 foreach (var user in useres) context.Users.Add(user);
@@ -106,6 +116,11 @@ namespace Geocaching.Data
                     {
                         id_user = 1,
                         id_photo = 1
+                    },
+                    new PhotoOfUser()
+                    {
+                        id_user = 2,
+                        id_photo = 1
                     }
                 };
                 foreach (var photoUser in photosOfUser) context.PhotoOfUser.Add(photoUser);
@@ -134,8 +149,16 @@ namespace Geocaching.Data
                         name = "KHAI",
                         description = "My university. My university. My university. My university. My university. My university. My university. My university. My university. My university. My university.",
                         date_of_apperance = DateTime.Now,
+                        date_of_last_visit = DateTime.Now,                     
+                    },
+                    new Cache()
+                    {
+                        id_user = 2,
+                        id_address = 1,
+                        name = "KHAI111",
+                        description = "My university. My university. My university. My university. My university. My university. My university. My university. My university. My university. My university.",
+                        date_of_apperance = DateTime.Now,
                         date_of_last_visit = DateTime.Now,
-                        
                     }
                 };
                 foreach (var cache in caches) context.Caches.Add(cache);
@@ -151,6 +174,11 @@ namespace Geocaching.Data
                     new PhotoOfCaches()
                     {
                         id_cache = 1,
+                        id_photo = 3
+                    },
+                    new PhotoOfCaches()
+                    {
+                        id_cache = 2,
                         id_photo = 3
                     }
                 };
@@ -183,6 +211,12 @@ namespace Geocaching.Data
                     {
                         id_user = 1,
                         id_cache = 1,
+                        date = DateTime.Now
+                    },
+                    new ListOfVisitedCaches()
+                    {
+                        id_user = 1,
+                        id_cache = 2,
                         date = DateTime.Now
                     }
                 };

@@ -7,6 +7,6 @@ namespace Geocaching.ViewModels
 {
     public class ListVisitedCachesViewModel
     {
-        public List<VisitedCacheViewModel> VisitedCache { get; set; }
+        public List<CacheViewModel> VisitedCache { get; set; }
     }
 }

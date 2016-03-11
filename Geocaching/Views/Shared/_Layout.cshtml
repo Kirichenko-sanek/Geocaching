@@ -79,7 +79,19 @@
                         <li>
                             @if (HttpContext.Current.User.Identity.IsAuthenticated)
                             {
-                                @Html.ActionLink(Resource.MyPage, "UserPage", "Profile", new { id = Session["UserId"] }, null)
+                                @Html.ActionLink(Resource.MyPage, "UserPage", "Profile", new {id = Session["UserId"]}, null)
+                            }
+                        </li>
+                        <li>
+                            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
+                                @Html.ActionLink(Resource.MyCache, "MyCaches", "Profile", new { id = Session["UserId"] }, null)
+                            }
+                        </li>
+                        <li>
+                            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
+                                @Html.ActionLink(Resource.VisitedCache, "VisitedCache", "Profile", new { id = Session["UserId"] }, null)
                             }
                         </li>
                     </ul>

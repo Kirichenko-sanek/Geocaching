@@ -9,5 +9,6 @@ namespace Geocaching.Interfases.Manager
 {
     public interface ICacheManager<T> : IManager<T> where T : Cache
     {
+        IQueryable<Cache> GetCachesByIdUser(long id);
     }
 }

@@ -183,6 +183,9 @@
   <data name="MassagePass" xml:space="preserve">
     <value>On your e-mail arrived message with a new password.</value>
   </data>
+  <data name="MyCache" xml:space="preserve">
+    <value>My caches</value>
+  </data>
   <data name="MyPage" xml:space="preserve">
     <value>My Page</value>
   </data>

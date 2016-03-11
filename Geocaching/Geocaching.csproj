@@ -192,7 +192,8 @@
     <Compile Include="ViewModels\CachePageViewModel.cs" />
     <Compile Include="ViewModels\CommentsViewModel.cs" />
     <Compile Include="ViewModels\ListVisitedCachesViewModel.cs" />
-    <Compile Include="ViewModels\VisitedCacheViewModel.cs" />
+    <Compile Include="ViewModels\MyCachesVievModel.cs" />
+    <Compile Include="ViewModels\CacheViewModel.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
     <Compile Include="ViewModels\PassRecoveryViewModel.cs" />
     <Compile Include="ViewModels\PhotoOfCachesViewModel.cs" />
@@ -273,6 +274,8 @@
     <Content Include="Views\Shared\PhotosCache.cshtml" />
     <Content Include="Views\Shared\Comments.cshtml" />
     <Content Include="Views\Profile\VisitedCache.cshtml" />
+    <Content Include="Views\Shared\Cache.cshtml" />
+    <Content Include="Views\Profile\MyCaches.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

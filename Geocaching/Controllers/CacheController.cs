@@ -46,7 +46,7 @@ namespace Geocaching.Controllers
                     photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
                 }
                 model.Photos = photos;
-                model.MainPhoto =  photos[1].Name;
+                model.MainPhoto =  photos[0].Name;
 
                 var comments_cache = _managerComments.GetCommentsByCacheId(cache.id).OrderByDescending(x => x.date);
                 List<CommentsViewModel> comments = new List<CommentsViewModel>();
@@ -74,14 +74,21 @@ namespace Geocaching.Controllers
             return RedirectToAction("CachePage", new { id = model.IdCache });
         }
 
+        [HttpPost]
         [AllowAnonymous]
         public ActionResult Visit(CachePageViewModel model)
         {
             var entity = Mapper.Map<CachePageViewModel, ListOfVisitedCaches>(model);
+            var entityCache = _managerCache.GetById(entity.id_cache);
+
+
             _managerListOfVisitedCaches.Add(entity);
 
             entity.cache.date_of_last_visit = DateTime.Now;
+            entityCache.date_of_last_visit = DateTime.Now;
+
             _managerListOfVisitedCaches.Update(entity);
+            _managerCache.Update(entityCache);
 
             return RedirectToAction("CachePage", new {id = model.IdCache});
         }

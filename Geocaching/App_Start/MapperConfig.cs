@@ -73,7 +73,26 @@ namespace Geocaching
                 m.date = DateTime.Now;
             });
 
-            
+            Mapper.CreateMap<ListOfVisitedCaches, CacheViewModel>().AfterMap((p, m) =>
+            {
+                m.Id = p.id_cache;
+                m.CacheName = p.cache.name;
+                m.IdUserCache = p.id_user;
+                m.DateVisit = p.date;
+                m.DateAdded = p.cache.date_of_apperance;
+                m.UserName = p.cache.user.first_name + " " + p.cache.user.last_name;
+                
+            });
+
+            Mapper.CreateMap<Cache, CacheViewModel>().AfterMap((p, m) =>
+            {
+                m.Id = p.id;
+                m.CacheName = p.name;
+                m.IdUserCache = p.id_user;
+                m.DateVisit = p.date_of_last_visit;
+                m.DateAdded = p.date_of_apperance;
+                m.UserName = p.user.first_name + " " + p.user.last_name;
+            });
         }
     }
 }

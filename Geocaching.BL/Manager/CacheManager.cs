@@ -18,5 +18,10 @@ namespace Geocaching.BL.Manager
         {
             _cacheRepository = cacheRepository;
         }
+
+        public IQueryable<Cache> GetCachesByIdUser(long id)
+        {
+            return _cacheRepository.GetCachesByIdUser(id);
+        }
     }
 }

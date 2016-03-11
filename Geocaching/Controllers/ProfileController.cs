@@ -57,33 +57,66 @@ namespace Geocaching.Controllers
             }
         }
 
+        [AllowAnonymous]
         public ActionResult VisitedCache(ListVisitedCachesViewModel model, long id)
         {
-            var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(id).OrderByDescending( x => x.date);
-            List<VisitedCacheViewModel> caches = new List<VisitedCacheViewModel>();
-            foreach (var cache in visited_caches)
-            {
-                var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);
+            
+                var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(id).OrderByDescending(x => x.date);
+                List<CacheViewModel> caches = new List<CacheViewModel>();
                 List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
-                foreach (var photo in photos_cache)
-                {
-                    photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
-                   
-                }
 
-                //caches.Add(Mapper.Map<ListOfVisitedCaches, VisitedCacheViewModel>(cache));
-                caches.Add(new VisitedCacheViewModel()
+                foreach (var cache in visited_caches)
                 {
-                    Id = cache.id_cache,
-                    Photo = photos[1].Name,
-                    UserName = cache.user.first_name + " " + cache.user.last_name,
-                    CacheName = cache.cache.name,
-                    DateVisit = cache.date
-                
-                });
+                    var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);
+                    //photos.Clear();
+                    foreach (var photo in photos_cache)
+                    {
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+
+                    }
+
+                    var a = Mapper.Map<ListOfVisitedCaches, CacheViewModel>(cache);
+                    a.Photo = photos[0].Name;
+
+                    caches.Add(a);
+                }
+                model.VisitedCache = caches;
+                return View(model);
+            
+        }
+
+        [AllowAnonymous]
+        public ActionResult MyCaches(MyCachesVievModel model, long id)
+        {
+            if (!ModelState.IsValid) return View();
+            try
+            {
+                var my_caches = _managerCache.GetCachesByIdUser(id).OrderByDescending(x => x.date_of_apperance);
+                List<CacheViewModel> caches = new List<CacheViewModel>();
+                List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
+
+                foreach (var cache in my_caches)
+                {
+                    var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);
+                    photos.Clear();
+                    foreach (var photo in photos_cache)
+                    {
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+
+                    }
+
+                    var a = Mapper.Map<Cache, CacheViewModel>(cache);
+                    a.Photo = photos[0].Name;
+
+                    caches.Add(a);
+                }
+                model.MyCache = caches;
+                return View(model);
             }
-            model.VisitedCache = caches;
-            return View(model);
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
     }

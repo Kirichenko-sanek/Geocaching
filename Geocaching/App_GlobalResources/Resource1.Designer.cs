@@ -259,6 +259,15 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My caches.
+        /// </summary>
+        public static string MyCache {
+            get {
+                return ResourceManager.GetString("MyCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My Page.
         /// </summary>
         public static string MyPage {
