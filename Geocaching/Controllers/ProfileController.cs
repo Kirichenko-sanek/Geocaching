@@ -60,15 +60,17 @@ namespace Geocaching.Controllers
         [AllowAnonymous]
         public ActionResult VisitedCache(ListVisitedCachesViewModel model, long id)
         {
-            
+            if (!ModelState.IsValid) return View();
+            try
+            {
                 var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(id).OrderByDescending(x => x.date);
                 List<CacheViewModel> caches = new List<CacheViewModel>();
                 List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
 
                 foreach (var cache in visited_caches)
                 {
-                    var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);
-                    //photos.Clear();
+                    var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id_cache);
+                    photos.Clear();
                     foreach (var photo in photos_cache)
                     {
                         photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
@@ -82,7 +84,11 @@ namespace Geocaching.Controllers
                 }
                 model.VisitedCache = caches;
                 return View(model);
-            
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
         [AllowAnonymous]

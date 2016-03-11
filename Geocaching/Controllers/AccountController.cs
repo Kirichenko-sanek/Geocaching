@@ -42,8 +42,6 @@ namespace Geocaching.Controllers
         {
             try
             {
-                //var mapper = _mapper.Map()
-
                 var entity = Mapper.Map<RegisterViewModel, User>(model);
                 var user = _manager.GetUserByEmail(model.Email);
                 if (user != null) throw new Exception(Resource.EmailExist);
