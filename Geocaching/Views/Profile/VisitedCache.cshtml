@@ -1,0 +1,39 @@
+﻿@using Geocaching.App_GlobalResources
+@model List<Geocaching.ViewModels.ListVisitedCachesViewModel>
+<section id="single-page-header">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-page-header-left">
+                        <h2>
+                            @Resource.VisitedCache
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="blog-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-archive-area">
+                    <div class="row">
+
+                        @foreach (var cache in Model)
+                        {
+                            <article class="blog-news-single">
+                                <div class="blog-news-img">
+                                    
+                                </div>
+                            </article>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

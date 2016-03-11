@@ -14,5 +14,10 @@ namespace Geocaching.Data.Repository
         {
             
         }
+
+        public IQueryable<ListOfVisitedCaches> GetCacheByIdUser(long id)
+        {
+            return _context.ListOfVisitedCaches.Where(x => x.id_user == id);
+        }
     }
 }

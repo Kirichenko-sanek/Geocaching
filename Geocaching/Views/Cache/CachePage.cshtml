@@ -45,6 +45,17 @@
                                         <h4>@Model.Description</h4>
                                     </div>
                                 </article>
+
+                                <div class="comments-box-area">
+                                    @using (Html.BeginForm("Visit", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => Model.IdCache)
+                                        @Html.HiddenFor(model => Model.IdUserCache)
+                                        <input type="submit" value=@Resource.Visit class="comment-btn"/>
+                                    }
+                                </div>
+
                             </div>
                         </div>
                     </div>

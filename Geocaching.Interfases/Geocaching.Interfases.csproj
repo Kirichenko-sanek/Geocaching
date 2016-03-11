@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Manager\ICacheManager.cs" />
     <Compile Include="Manager\ICommentsManager.cs" />
+    <Compile Include="Manager\IListOfVisitedCachesManager.cs" />
     <Compile Include="Manager\IManager.cs" />
     <Compile Include="Manager\IPhotoOfCachesManager.cs" />
     <Compile Include="Manager\IPhotoOfUserManager.cs" />

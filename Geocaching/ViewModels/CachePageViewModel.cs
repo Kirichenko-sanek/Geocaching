@@ -17,6 +17,8 @@ namespace Geocaching.ViewModels
         public string MainPhoto { get; set; }
         public List<CommentsViewModel> Comments { get; set; }
         public string NewComment { get; set; }
+        public VisitedCacheViewModel Visit { get; set; }
+        
 
 
         public double Longitude { get; set; }

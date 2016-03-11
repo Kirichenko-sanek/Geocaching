@@ -219,6 +219,12 @@
   <data name="UserPage" xml:space="preserve">
     <value>User Page</value>
   </data>
+  <data name="Visit" xml:space="preserve">
+    <value>Visit</value>
+  </data>
+  <data name="VisitedCache" xml:space="preserve">
+    <value>The visited caches</value>
+  </data>
   <data name="WrongFormatEmail" xml:space="preserve">
     <value>Wrong format Email</value>
   </data>

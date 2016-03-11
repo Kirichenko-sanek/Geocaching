@@ -57,6 +57,10 @@ namespace Geocaching.CW.Installers
                 Component.For(typeof (ICommentRepository<>))
                     .ImplementedBy(typeof (CommentRepository<>))
                     .LifestyleTransient());
+            container.Register(
+                Component.For(typeof (IListOfVisitedCachesRepository<>))
+                    .ImplementedBy(typeof (ListOfVisitedCachesRepository<>))
+                    .LifestyleTransient());
             ///////
 
             container.Register(
@@ -75,6 +79,11 @@ namespace Geocaching.CW.Installers
                 Component.For(typeof (IValidator<Comment>))
                     .ImplementedBy(typeof (CommentsValidator))
                     .LifestyleTransient());
+            container.Register(
+                Component.For(typeof (IValidator<ListOfVisitedCaches>))
+                    .ImplementedBy(typeof (ListOfVisitedCachesValidator))
+                    .LifestyleTransient());
+            
             /////
 
 
@@ -93,6 +102,10 @@ namespace Geocaching.CW.Installers
             container.Register(
                 Component.For(typeof (ICommentsManager<>))
                     .ImplementedBy(typeof (CommentsManager<>))
+                    .LifestyleTransient());
+            container.Register(
+                Component.For(typeof (IListOfVisitedCachesManager<>))
+                    .ImplementedBy(typeof (ListOfVisitedCachesManager<>))
                     .LifestyleTransient());
             //////
 

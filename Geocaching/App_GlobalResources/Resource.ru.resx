@@ -219,6 +219,12 @@
   <data name="UserPage" xml:space="preserve">
     <value>Страница пользователя</value>
   </data>
+  <data name="Visit" xml:space="preserve">
+    <value>Посетить</value>
+  </data>
+  <data name="VisitedCache" xml:space="preserve">
+    <value>Посещённые тайники</value>
+  </data>
   <data name="WrongFormatEmail" xml:space="preserve">
     <value>Не верный формат электронной почты</value>
   </data>

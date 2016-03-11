@@ -19,6 +19,7 @@ namespace Geocaching.Core
         public virtual List<Cache> caches { get; set; }
         public virtual List<Comment> comments { get; set; }
         public virtual List<PhotoOfUser> photos_of_user { get; set; }
+        public virtual List<ListOfVisitedCaches> list_of_visited_cache { get; set; } 
 
 
         public User()
@@ -26,7 +27,8 @@ namespace Geocaching.Core
             users = new List<UserInRoles>();
             caches = new List<Cache>();
             comments = new List<Comment>();
-            photos_of_user = new List<PhotoOfUser>();            
+            photos_of_user = new List<PhotoOfUser>();
+            list_of_visited_cache = new List<ListOfVisitedCaches>();            
         }
     }
 }

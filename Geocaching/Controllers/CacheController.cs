@@ -17,14 +17,17 @@ namespace Geocaching.Controllers
         private readonly ICacheManager<Cache> _managerCache;
         private readonly IPhotoOfCachesManager<PhotoOfCaches> _managerPhotoOfCaches;
         private readonly ICommentsManager<Comment> _managerComments;
+        private readonly IListOfVisitedCachesManager<ListOfVisitedCaches> _managerListOfVisitedCaches;
 
 
         public CacheController(ICacheManager<Cache> managerCache,
-            IPhotoOfCachesManager<PhotoOfCaches> managerPhotoOfCaches, ICommentsManager<Comment> managerComments)
+            IPhotoOfCachesManager<PhotoOfCaches> managerPhotoOfCaches, ICommentsManager<Comment> managerComments,
+            IListOfVisitedCachesManager<ListOfVisitedCaches> managerListOfVisitedCaches)
         {
             _managerCache = managerCache;
             _managerPhotoOfCaches = managerPhotoOfCaches;
             _managerComments = managerComments;
+            _managerListOfVisitedCaches = managerListOfVisitedCaches;
         }
 
         [AllowAnonymous]
@@ -68,7 +71,19 @@ namespace Geocaching.Controllers
         {
             var entity = Mapper.Map<CachePageViewModel, Comment>(model);
             _managerComments.Add(entity);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("CachePage", new { id = model.IdCache });
+        }
+
+        [AllowAnonymous]
+        public ActionResult Visit(CachePageViewModel model)
+        {
+            var entity = Mapper.Map<CachePageViewModel, ListOfVisitedCaches>(model);
+            _managerListOfVisitedCaches.Add(entity);
+
+            entity.cache.date_of_last_visit = DateTime.Now;
+            _managerListOfVisitedCaches.Update(entity);
+
+            return RedirectToAction("CachePage", new {id = model.IdCache});
         }
 
     }

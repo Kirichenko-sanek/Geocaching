@@ -65,6 +65,15 @@ namespace Geocaching
                 m.description = p.NewComment;
                 m.date = DateTime.Now;
             });
+
+            Mapper.CreateMap<CachePageViewModel, ListOfVisitedCaches>().AfterMap((p, m) =>
+            {
+                m.id_user = p.IdUserCache;
+                m.id_cache = p.IdCache;
+                m.date = DateTime.Now;
+            });
+
+            
         }
     }
 }

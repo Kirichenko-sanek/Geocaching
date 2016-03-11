@@ -367,6 +367,24 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Visit.
+        /// </summary>
+        public static string Visit {
+            get {
+                return ResourceManager.GetString("Visit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The visited caches.
+        /// </summary>
+        public static string VisitedCache {
+            get {
+                return ResourceManager.GetString("VisitedCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wrong format Email.
         /// </summary>
         public static string WrongFormatEmail {

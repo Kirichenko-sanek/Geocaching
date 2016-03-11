@@ -11,7 +11,6 @@ namespace Geocaching.Core
         public long id_user { get; set; }
         public long id_cache { get; set; }
         public DateTime date { get; set; }
-        public string discription { get; set; }
 
         public virtual User user { get; set; }
         public virtual Cache cache { get; set; }

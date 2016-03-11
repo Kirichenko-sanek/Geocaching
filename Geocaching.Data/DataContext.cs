@@ -176,8 +176,19 @@ namespace Geocaching.Data
                 };
                 foreach (var coment in comments) context.Comments.Add(coment);
                 context.SaveChanges();
-                
 
+                var listOfVisitedCache = new List<ListOfVisitedCaches>
+                {
+                    new ListOfVisitedCaches()
+                    {
+                        id_user = 1,
+                        id_cache = 1,
+                        date = DateTime.Now
+                    }
+                };
+                foreach (var list in listOfVisitedCache) context.ListOfVisitedCaches.Add(list);
+                context.SaveChanges();
+               
 
                 base.Seed(context);
             }
