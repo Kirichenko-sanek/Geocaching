@@ -214,6 +214,24 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latest added caches.
+        /// </summary>
+        public static string LatestAddCache {
+            get {
+                return ResourceManager.GetString("LatestAddCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Latest visited caches.
+        /// </summary>
+        public static string LatestVisitedCache {
+            get {
+                return ResourceManager.GetString("LatestVisitedCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can`t be more than 30 characters.
         /// </summary>
         public static string Length {

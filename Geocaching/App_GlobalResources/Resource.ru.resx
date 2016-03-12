@@ -168,6 +168,12 @@
   <data name="LastName" xml:space="preserve">
     <value>Фамилия</value>
   </data>
+  <data name="LatestAddCache" xml:space="preserve">
+    <value>Последние добавленные тайники</value>
+  </data>
+  <data name="LatestVisitedCache" xml:space="preserve">
+    <value>Последние посещённые тайники</value>
+  </data>
   <data name="Length" xml:space="preserve">
     <value>Не должно быть больше 30 символов</value>
   </data>

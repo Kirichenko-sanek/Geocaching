@@ -8,7 +8,7 @@ namespace Geocaching.ViewModels
         public string Photo { get; set; }
         public string Name { get; set; }
 
-        public List<CacheViewModel> VisitedCache { get; set; }
-
+        public List<CacheViewModel> LastVisitedCache { get; set; }
+        public List<CacheViewModel> LastMyCache { get; set; }
     }
 }

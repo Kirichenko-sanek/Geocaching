@@ -1,0 +1,34 @@
+﻿@using Geocaching.App_GlobalResources
+@model List<Geocaching.ViewModels.CacheViewModel>
+@foreach (var cache in Model)
+{
+    <div class="col-md-4">
+        <article class="blog-news-single">
+            <div class="blog-news-img">
+                <a href="@Url.Action("CachePage","Cache", new { id = cache.Id,  }, null)">
+                    <img src="@cache.Photo" alt="image">
+                </a>
+            </div>
+            <div class="blog-news-title">
+                <h2>
+                    <a href="@Url.Action("CachePage","Cache", new { id = cache.Id,  }, null)">
+                        @cache.CacheName
+                    </a>
+
+                </h2>
+                <p>
+                    @Html.ActionLink(@cache.UserName, "UserPage", "Profile", new { id = cache.IdUserCache }, null)
+
+                </p>
+                <p>
+                    @Resource.DateAdded
+                    <span class="blog-date">@cache.DateAdded</span>
+                </p>
+                <p>
+                    @Resource.DateOfLastVisit
+                    <span class="blog-date">@cache.DateVisit</span>
+                </p>
+            </div>
+        </article>
+    </div>
+}

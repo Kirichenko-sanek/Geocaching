@@ -79,6 +79,7 @@ namespace Geocaching.Controllers
         public ActionResult Visit(CachePageViewModel model)
         {
             var entity = Mapper.Map<CachePageViewModel, ListOfVisitedCaches>(model);
+            entity.id_user = Convert.ToInt64(Session["UserId"]);
             var entityCache = _managerCache.GetById(entity.id_cache);
 
 

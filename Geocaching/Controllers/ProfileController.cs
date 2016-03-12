@@ -49,6 +49,59 @@ namespace Geocaching.Controllers
                 var photo_user = _managerPhotoOfUser.GetPhotoUserByUserId(user.id);
                 model = Mapper.Map<User, UserPageViewModel>(user);
                 model.Photo = photo_user.photo.name;
+
+                int count = 0;
+
+                var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(user.id).OrderByDescending(x => x.date);
+                List<CacheViewModel> caches = new List<CacheViewModel>();
+                List<CacheViewModel> caches_my = new List<CacheViewModel>();
+                List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
+
+                foreach (var cache in visited_caches)
+                {
+                    var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id_cache);
+                    photos.Clear();
+                    foreach (var photo in photos_cache)
+                    {
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+
+                    }
+
+                    var a = Mapper.Map<ListOfVisitedCaches, CacheViewModel>(cache);
+                    a.Photo = photos[0].Name;
+
+                    caches.Add(a);
+                    
+
+                    if (count == 2) break;
+                    count++;
+
+                }
+                model.LastVisitedCache = caches;
+
+                var my_caches = _managerCache.GetCachesByIdUser(user.id).OrderByDescending(x => x.date_of_apperance);
+                count = 0;
+                foreach (var cache in my_caches)
+                {
+                    var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);
+                    photos.Clear();
+                    foreach (var photo in photos_cache)
+                    {
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+
+                    }
+
+                    var a = Mapper.Map<Cache, CacheViewModel>(cache);
+                    a.Photo = photos[0].Name;
+
+                    caches_my.Add(a);
+
+                    
+                    if (count == 2) break;
+                    count++;
+                }
+                model.LastMyCache = caches_my;
+
                 return View(model);
             }
             catch (Exception)

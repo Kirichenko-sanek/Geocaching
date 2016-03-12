@@ -68,7 +68,7 @@ namespace Geocaching
 
             Mapper.CreateMap<CachePageViewModel, ListOfVisitedCaches>().AfterMap((p, m) =>
             {
-                m.id_user = p.IdUserCache;
+                //m.id_user = p.Session["UserId"];
                 m.id_cache = p.IdCache;
                 m.date = DateTime.Now;
             });

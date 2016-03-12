@@ -276,6 +276,7 @@
     <Content Include="Views\Profile\VisitedCache.cshtml" />
     <Content Include="Views\Shared\Cache.cshtml" />
     <Content Include="Views\Profile\MyCaches.cshtml" />
+    <Content Include="Views\Shared\LatestCache.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

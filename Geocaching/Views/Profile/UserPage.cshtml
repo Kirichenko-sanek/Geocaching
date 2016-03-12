@@ -40,3 +40,37 @@
     </div>
 </section>
 
+<section id="latest-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-area">
+                    <h2 class="title">@Resource.LatestAddCache</h2>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="latest-news-content">
+                    <div class="row">
+                        @Html.Partial("LatestCache", Model.LastMyCache)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <div class="title-area">
+                    <h2 class="title">@Resource.LatestVisitedCache</h2>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="latest-news-content">
+                    <div class="row">
+                        @Html.Partial("LatestCache", Model.LastVisitedCache)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
