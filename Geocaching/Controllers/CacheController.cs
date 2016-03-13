@@ -33,12 +33,13 @@ namespace Geocaching.Controllers
         [AllowAnonymous]
         public ActionResult CachePage(CachePageViewModel model, long id)
         {
-            if (!ModelState.IsValid) return View();
+           
             try
             {
+                if (!ModelState.IsValid) return View();
                 var cache = _managerCache.GetById(id);
                 model = Mapper.Map<Cache, CachePageViewModel>(cache);
-
+                model.IdUserInSystem = Convert.ToInt64(Session["UserId"]);
                 var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);
                 List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
                 foreach (var photo in photos_cache)

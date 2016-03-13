@@ -10,7 +10,7 @@ namespace Geocaching
         public static void RegisterMapping()
         {
 
-            Mapper.CreateMap<User, RegisterViewModel>();
+            
            
             
             Mapper.CreateMap<RegisterViewModel, User>().AfterMap((p, m) =>
@@ -20,14 +20,18 @@ namespace Geocaching
                     m.email = p.Email;
                 });
             
-           Mapper.CreateMap<User, UserPageViewModel>().AfterMap((p, m) =>
+
+
+            Mapper.CreateMap<User, UserPageViewModel>().AfterMap((p, m) =>
             {
                 m.Name = p.first_name + " " + p.last_name;
-                m.IdUserInSystem = p.id;
+                m.IdUserPage = p.id;
+                //m.IdUserPage = 
             });
 
             Mapper.CreateMap<Cache, CachePageViewModel>().AfterMap((p, m) =>
             {
+                
                 m.IdCache = p.id;
                 m.IdUserCache = p.id_user;
                 m.Name = p.name;
@@ -61,14 +65,13 @@ namespace Geocaching
             Mapper.CreateMap<CachePageViewModel, Comment>().AfterMap((p, m) =>
             {
                 m.id_cache = p.IdCache;
-                m.id_user = p.IdUserCache;
+                m.id_user = p.IdUserInSystem;
                 m.description = p.NewComment;
                 m.date = DateTime.Now;
             });
 
             Mapper.CreateMap<CachePageViewModel, ListOfVisitedCaches>().AfterMap((p, m) =>
             {
-                //m.id_user = p.Session["UserId"];
                 m.id_cache = p.IdCache;
                 m.date = DateTime.Now;
             });
@@ -77,7 +80,7 @@ namespace Geocaching
             {
                 m.Id = p.id_cache;
                 m.CacheName = p.cache.name;
-                m.IdUserCache = p.id_user;
+                m.IdUserCache = p.cache.id_user;
                 m.DateVisit = p.date;
                 m.DateAdded = p.cache.date_of_apperance;
                 m.UserName = p.cache.user.first_name + " " + p.cache.user.last_name;
@@ -94,8 +97,21 @@ namespace Geocaching
                 m.UserName = p.user.first_name + " " + p.user.last_name;
             });
 
+            Mapper.CreateMap<User, EditProfileViewModel>().AfterMap((p, m) =>
+            {
+                m.Id = p.id;
+                m.FirstName = p.first_name;
+                m.LastName = p.last_name;
+                m.Email = p.email;
+            });
 
-            
+            Mapper.CreateMap<EditProfileViewModel, User>().AfterMap((p, m) =>
+            {
+                m.first_name = p.FirstName;
+                m.last_name = p.LastName;
+                m.email = p.Email;
+            });
+
         }
     }
 }

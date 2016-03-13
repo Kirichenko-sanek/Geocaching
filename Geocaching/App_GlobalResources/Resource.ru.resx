@@ -135,8 +135,14 @@
   <data name="DateOfLastVisit" xml:space="preserve">
     <value>Дата последнего посещения</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
   <data name="EditPassword" xml:space="preserve">
     <value>Редактирование пароля</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Редактирование профиля</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Электронная почта</value>
@@ -227,6 +233,9 @@
   </data>
   <data name="UserPage" xml:space="preserve">
     <value>Страница пользователя</value>
+  </data>
+  <data name="ViewAll" xml:space="preserve">
+    <value>Посмотреть все</value>
   </data>
   <data name="Visit" xml:space="preserve">
     <value>Посетить</value>

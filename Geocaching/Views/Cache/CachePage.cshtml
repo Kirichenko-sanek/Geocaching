@@ -93,7 +93,7 @@
                                 {
                                     @Html.AntiForgeryToken()
                                     @Html.HiddenFor(model =>Model.IdCache)
-                                    @Html.HiddenFor(model => Model.IdUserCache)
+                                    @Html.HiddenFor(model => Model.IdUserInSystem)
                                     @Html.TextAreaFor(model => model.NewComment,  new { @style = "width: 100%", @placeholder = Resource.Comment, @rows = "3" , @class = "form-control" })
                                     <input type="submit" value=@Resource.AddComment class="comment-btn"/>
                                 }                               

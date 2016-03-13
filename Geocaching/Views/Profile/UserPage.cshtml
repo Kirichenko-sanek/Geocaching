@@ -31,7 +31,8 @@
                     </div>
                     <div>
                         @Html.ActionLink("Hello", "CachePage", "Cache", new { id = 1 }, null)
-                        @Html.ActionLink("Hello222","VisitedCache", new { id = Model.IdUserInSystem }, null)
+                        @Html.ActionLink("Hello222","VisitedCache", new { id = Model.IdUserPage }, null)
+                        @Html.ActionLink(@Resource.EditProfile, "EditProfile", new { id = Model.IdUserPage }, null)
 
                     </div>
                 </div>
@@ -47,6 +48,10 @@
                 <div class="title-area">
                     <h2 class="title">@Resource.LatestAddCache</h2>
                     <span class="line"></span>
+                    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        <br/>@Html.ActionLink(Resource.ViewAll, "MyCaches", "Profile", new { id = Model.IdUserPage }, null)
+                    }
                 </div>
             </div>
             <div class="col-md-12">
@@ -59,8 +64,12 @@
             
             <div class="col-md-12">
                 <div class="title-area">
-                    <h2 class="title">@Resource.LatestVisitedCache</h2>
+                    <h2 class="title"><br/>@Resource.LatestVisitedCache</h2>
                     <span class="line"></span>
+                    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        <br />@Html.ActionLink(Resource.ViewAll, "VisitedCache", "Profile", new { id = Model.IdUserPage }, null)
+                    }
                 </div>
             </div>
             <div class="col-md-12">

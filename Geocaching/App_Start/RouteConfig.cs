@@ -38,6 +38,12 @@ namespace Geocaching
            );
 
             routes.MapRoute(
+               name: "EditProfile",
+               url: "Profile/EditProfile/{id}",
+               defaults: new { controller = "Profile", action = "EditProfile", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                name: "CachePage",
                url: "Cache/CachePage/{id}",
                defaults: new { controller = "Cache", action = "CachePage", id = UrlParameter.Optional }

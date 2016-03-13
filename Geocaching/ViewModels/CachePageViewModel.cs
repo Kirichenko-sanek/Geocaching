@@ -6,6 +6,7 @@ namespace Geocaching.ViewModels
 {
     public class CachePageViewModel
     {
+        public long IdUserInSystem { get; set; }
         public long IdCache { get; set; }
         public long IdUserCache { get; set; }
         public string Name { get; set; }

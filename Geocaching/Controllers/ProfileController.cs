@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using Geocaching.BL;
 using Geocaching.Core;
 using Geocaching.Filters;
 using Geocaching.Interfases.Manager;
@@ -49,7 +50,6 @@ namespace Geocaching.Controllers
                 var photo_user = _managerPhotoOfUser.GetPhotoUserByUserId(user.id);
                 model = Mapper.Map<User, UserPageViewModel>(user);
                 model.Photo = photo_user.photo.name;
-
                 int count = 0;
 
                 var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(user.id).OrderByDescending(x => x.date);
@@ -110,12 +110,60 @@ namespace Geocaching.Controllers
             }
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult EditProfile(EditProfileViewModel model, long id)
+        {
+            var user = _managerUser.GetById(id);
+            model = Mapper.Map<User, EditProfileViewModel>(user);
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfile(EditProfileViewModel model, HttpPostedFileBase upload)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return View(model);
+                var user = _managerUser.GetById(model.Id);
+                var photo_user = _managerPhotoOfUser.GetPhotoUserByUserId(user.id);
+
+                string pathPic = photo_user.photo.name;
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var pic = new AddPhotos();
+                    pathPic = pic.AddImage(upload, Server.MapPath("~/images/Account/"), "~/images/Account/");
+                }
+
+                
+                photo_user.photo = new Photo
+                {
+                    name = pathPic,
+                    date = DateTime.Now
+                };
+                _managerPhotoOfUser.Update(photo_user);
+                user = Mapper.Map<EditProfileViewModel, User>(model, user);
+                _managerUser.Update(user);
+
+                return RedirectToRoute("UserPage");
+
+            }
+            catch (Exception)
+            {
+
+                return View();
+            }
+        }
+
         [AllowAnonymous]
         public ActionResult VisitedCache(ListVisitedCachesViewModel model, long id)
         {
-            if (!ModelState.IsValid) return View();
+            
             try
             {
+                if (!ModelState.IsValid) return View();
                 var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(id).OrderByDescending(x => x.date);
                 List<CacheViewModel> caches = new List<CacheViewModel>();
                 List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
@@ -147,9 +195,10 @@ namespace Geocaching.Controllers
         [AllowAnonymous]
         public ActionResult MyCaches(MyCachesVievModel model, long id)
         {
-            if (!ModelState.IsValid) return View();
+            
             try
             {
+                if (!ModelState.IsValid) return View();
                 var my_caches = _managerCache.GetCachesByIdUser(id).OrderByDescending(x => x.date_of_apperance);
                 List<CacheViewModel> caches = new List<CacheViewModel>();
                 List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();

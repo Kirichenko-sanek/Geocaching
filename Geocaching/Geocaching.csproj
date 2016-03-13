@@ -189,8 +189,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Validators\CommentsViewModelValidator.cs" />
+    <Compile Include="Validators\EditProfileViewModelValidator.cs" />
     <Compile Include="ViewModels\CachePageViewModel.cs" />
     <Compile Include="ViewModels\CommentsViewModel.cs" />
+    <Compile Include="ViewModels\EditProfileViewModel.cs" />
     <Compile Include="ViewModels\ListVisitedCachesViewModel.cs" />
     <Compile Include="ViewModels\MyCachesVievModel.cs" />
     <Compile Include="ViewModels\CacheViewModel.cs" />
@@ -277,6 +279,7 @@
     <Content Include="Views\Shared\Cache.cshtml" />
     <Content Include="Views\Profile\MyCaches.cshtml" />
     <Content Include="Views\Shared\LatestCache.cshtml" />
+    <Content Include="Views\Profile\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
