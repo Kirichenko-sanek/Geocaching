@@ -12,12 +12,14 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="single-page-header-left">
                         <h2>@Resource.Registration</h2>
+                        <p>
+                            @Html.DisplayTextFor(model => model.Error)
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
 
 @using (Html.BeginForm("Registration", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))

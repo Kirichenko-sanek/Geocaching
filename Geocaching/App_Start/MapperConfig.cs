@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Geocaching.Core;
 using Geocaching.ViewModels;
@@ -8,25 +9,18 @@ namespace Geocaching
     public class MapperConfig
     {
         public static void RegisterMapping()
-        {
-
-            
-           
-            
+        {                           
             Mapper.CreateMap<RegisterViewModel, User>().AfterMap((p, m) =>
                 {
                     m.first_name = p.FirstName;
                     m.last_name = p.LastName;
                     m.email = p.Email;
                 });
-            
-
 
             Mapper.CreateMap<User, UserPageViewModel>().AfterMap((p, m) =>
             {
                 m.Name = p.first_name + " " + p.last_name;
                 m.IdUserPage = p.id;
-                //m.IdUserPage = 
             });
 
             Mapper.CreateMap<Cache, CachePageViewModel>().AfterMap((p, m) =>
@@ -112,6 +106,31 @@ namespace Geocaching
                 m.email = p.Email;
             });
 
+            Mapper.CreateMap<AddCacheViewModel, Cache>().AfterMap((p, m) =>
+            {
+                m.id_user = p.IdUser;
+                m.name = p.Name;
+                m.description = p.Description;
+                m.date_of_apperance = DateTime.Now;
+                m.date_of_last_visit = DateTime.Now;
+                m.address = new Address
+                {
+                    longitude = p.Longitude,
+                    latitude = p.Latitude,
+                    country = p.Country,
+                    region = p.Region,
+                    city = p.City,
+                };               
+            });
+
+            Mapper.CreateMap<AddCacheViewModel, Address>().AfterMap((p, m) =>
+            {
+                m.country = p.Country;
+                m.region = p.Region;
+                m.city = p.City;
+            });
+
+            
         }
     }
 }

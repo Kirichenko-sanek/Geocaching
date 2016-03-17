@@ -1,0 +1,116 @@
+﻿@using Geocaching.App_GlobalResources
+@model Geocaching.ViewModels.AddCacheViewModel
+
+@{
+    ViewBag.Title = @Resource.NewCache;
+}
+<section id="single-page-header">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-page-header-left">
+                        <h2>@Resource.NewCache</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@using (Html.BeginForm("AddCache", "Cache", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-area">
+                        <p>
+                            @Html.ValidationSummary(true, "", new { @id = "text-danger" })
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @placeholder = Resource.CacheName, @class = "form-control" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "control-label" })
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.TextAreaFor(model => model.Description, new { @style = "width: 100%", @placeholder = Resource.Description, @rows = "3", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "control-label" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Longitude, new {htmlAttributes = new {@placeholder = Resource.Longitude, @class = "form-control"}})
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.Longitude, "", new {@class = "control-label"})
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Latitude, new {htmlAttributes = new {@placeholder = Resource.Latitude, @class = "form-control"}})
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.Latitude, "", new {@class = "control-label"})
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Country, new {htmlAttributes = new {@placeholder = Resource.Country, @class = "form-control"}})
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Region, new {htmlAttributes = new {@placeholder = Resource.Region, @class = "form-control"}})
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @placeholder = Resource.City, @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="file" id="Photo" name="upload" lang="en-US"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" value=@Resource.Add class="comment-btn" />
+                </div>
+            </div>
+        </div>
+    </section>
+}

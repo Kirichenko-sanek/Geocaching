@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using Geocaching.BL;
 using Geocaching.Core;
 using Geocaching.Filters;
 using Geocaching.Interfases.Manager;
 using Geocaching.ViewModels;
-using WebGrease;
 
 namespace Geocaching.Controllers
 {
@@ -93,6 +94,47 @@ namespace Geocaching.Controllers
             _managerCache.Update(entityCache);
 
             return RedirectToAction("CachePage", new {id = model.IdCache});
+        }
+
+        [AllowAnonymous]
+        public ActionResult AddCache()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddCache(AddCacheViewModel model, HttpPostedFileBase upload)
+        {
+            try
+            {
+
+                var pic = new AddPhotos();
+                var patPic = pic.AddImage(upload, Server.MapPath("/Images/Cache/"), "/Images/Cache/");
+
+                var entity = Mapper.Map<AddCacheViewModel, Cache>(model);
+                entity.id_user = Convert.ToInt64(Session["UserId"]);
+
+                entity.photo_of_caches = new List<PhotoOfCaches>()
+                {
+                    new PhotoOfCaches
+                    {
+                        photo = new Photo
+                        {
+                            name = patPic,
+                            date = DateTime.Now
+                        }
+                    }
+                };
+                _managerCache.Add(entity);
+
+                return RedirectToRoute("UserPage");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
     }

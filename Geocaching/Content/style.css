@@ -1606,7 +1606,7 @@ img{
 
 #single-page-header{
   background-attachment: fixed !important;
-  background-image: url("assets/images/slider-5.jpg");
+  background-image: url("/assets/images/slider-5.jpg");
   background-repeat: repeat;
   background-size: cover;
   color: #ffffff;

@@ -85,6 +85,12 @@
                         <li>
                             @if (HttpContext.Current.User.Identity.IsAuthenticated)
                             {
+                                @Html.ActionLink(Resource.NewCache, "AddCache", "Cache")
+                            }
+                        </li>
+                        <li>
+                            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
                                 @Html.ActionLink(Resource.MyCache, "MyCaches", "Profile", new { id = Session["UserId"] }, null)
                             }
                         </li>

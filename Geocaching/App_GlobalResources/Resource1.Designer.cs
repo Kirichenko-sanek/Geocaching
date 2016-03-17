@@ -61,11 +61,38 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Comment.
         /// </summary>
         public static string AddComment {
             get {
                 return ResourceManager.GetString("AddComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cache Name.
+        /// </summary>
+        public static string CacheName {
+            get {
+                return ResourceManager.GetString("CacheName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
             }
         }
         
@@ -97,6 +124,15 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date added.
         /// </summary>
         public static string DateAdded {
@@ -111,6 +147,15 @@ namespace Geocaching.App_GlobalResources {
         public static string DateOfLastVisit {
             get {
                 return ResourceManager.GetString("DateOfLastVisit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         
@@ -250,11 +295,29 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can`t be more than 30 characters.
+        ///   Looks up a localized string similar to Latitude.
+        /// </summary>
+        public static string Latitude {
+            get {
+                return ResourceManager.GetString("Latitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can`t be more than 20 characters.
         /// </summary>
         public static string Length {
             get {
                 return ResourceManager.GetString("Length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can`t be more than 50 characters.
+        /// </summary>
+        public static string LengthCacheName {
+            get {
+                return ResourceManager.GetString("LengthCacheName", resourceCulture);
             }
         }
         
@@ -273,6 +336,15 @@ namespace Geocaching.App_GlobalResources {
         public static string LogOff {
             get {
                 return ResourceManager.GetString("LogOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longitude.
+        /// </summary>
+        public static string Longitude {
+            get {
+                return ResourceManager.GetString("Longitude", resourceCulture);
             }
         }
         
@@ -309,6 +381,24 @@ namespace Geocaching.App_GlobalResources {
         public static string MyPage {
             get {
                 return ResourceManager.GetString("MyPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Cache.
+        /// </summary>
+        public static string NewCache {
+            get {
+                return ResourceManager.GetString("NewCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Password.
+        /// </summary>
+        public static string NewPassword {
+            get {
+                return ResourceManager.GetString("NewPassword", resourceCulture);
             }
         }
         
@@ -372,6 +462,15 @@ namespace Geocaching.App_GlobalResources {
         public static string RegCompleted {
             get {
                 return ResourceManager.GetString("RegCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region.
+        /// </summary>
+        public static string Region {
+            get {
+                return ResourceManager.GetString("Region", resourceCulture);
             }
         }
         

@@ -1,8 +1,8 @@
 ﻿@using Geocaching.App_GlobalResources
-@model Geocaching.ViewModels.LogInViewModel
+@model Geocaching.ViewModels.EditPassViewModel
 
 @{
-    ViewBag.Title = @Resource.LogIn;
+    ViewBag.Title = @Resource.EditPassword;
 }
 
 <section id="single-page-header">
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="single-page-header-left">
-                        <h2>@Resource.LogIn</h2>
+                        <h2>@Resource.EditPassword</h2>
                         <p>
                             @Html.DisplayTextFor(model => model.Error)
                         </p>
@@ -20,13 +20,9 @@
             </div>
         </div>
     </div>
-
 </section>
 
-
-
-
-@using (Html.BeginForm("LogIn", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("EditPass", "Profile", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <section id="contact">
@@ -43,29 +39,37 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                @Html.EditorFor(model => model.EmailLogin, new { htmlAttributes = new { @placeholder = Resource.Email, @class = "form-control" } })
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = Resource.Password, @class = "form-control" } })
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @Html.ValidationMessageFor(model => model.EmailLogin, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "control-label" })
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                @Html.EditorFor(model => model.PasswordLogin, new { htmlAttributes = new { @placeholder = Resource.Password, @class = "form-control" } })
+                                @Html.EditorFor(model => model.NewPassword, new { htmlAttributes = new { @placeholder = Resource.NewPassword, @class = "form-control" } })
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @Html.ValidationMessageFor(model => model.PasswordLogin, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.NewPassword, "", new { @class = "control-label" })
                         </div>
                     </div>
-                    <input type="submit" value=@Resource.LogIn class="comment-btn"/>
-                    @Html.ActionLink(@Resource.ForgotPassword, "PassRecovery", "Account")
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.ConfirmNewPassword, new { htmlAttributes = new { @placeholder = Resource.ConfirmPassword, @class = "form-control" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.ValidationMessageFor(model => model.ConfirmNewPassword, "", new { @class = "control-label" })
+                        </div>
+                    </div>
+                    
+                    <input type="submit" value=@Resource.Edit class="comment-btn" />
                 </div>
             </div>
         </div>
     </section>
 }
-
-

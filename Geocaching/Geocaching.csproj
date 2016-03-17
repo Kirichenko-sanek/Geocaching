@@ -188,10 +188,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Validators\AddCacheViewModelValidator.cs" />
     <Compile Include="Validators\CommentsViewModelValidator.cs" />
+    <Compile Include="Validators\EditPassViewModelValidator.cs" />
     <Compile Include="Validators\EditProfileViewModelValidator.cs" />
+    <Compile Include="ViewModels\AddCacheViewModel.cs" />
     <Compile Include="ViewModels\CachePageViewModel.cs" />
     <Compile Include="ViewModels\CommentsViewModel.cs" />
+    <Compile Include="ViewModels\EditPassViewModel.cs" />
     <Compile Include="ViewModels\EditProfileViewModel.cs" />
     <Compile Include="ViewModels\ListVisitedCachesViewModel.cs" />
     <Compile Include="ViewModels\MyCachesVievModel.cs" />
@@ -217,6 +221,7 @@
     <Content Include="assets\images\fancybox_sprite.png" />
     <Content Include="assets\images\loader.gif" />
     <Content Include="assets\images\search-icon.png" />
+    <Content Include="assets\images\slider-5.jpg" />
     <Content Include="assets\images\testimonial-1.jpg" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap-progressbar-3.3.4.css" />
@@ -280,6 +285,8 @@
     <Content Include="Views\Profile\MyCaches.cshtml" />
     <Content Include="Views\Shared\LatestCache.cshtml" />
     <Content Include="Views\Profile\EditProfile.cshtml" />
+    <Content Include="Views\Cache\AddCache.cshtml" />
+    <Content Include="Views\Profile\EditPass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

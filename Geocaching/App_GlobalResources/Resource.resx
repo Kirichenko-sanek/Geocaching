@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="AddComment" xml:space="preserve">
     <value>Add Comment</value>
+  </data>
+  <data name="CacheName" xml:space="preserve">
+    <value>Cache Name</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
   </data>
   <data name="Comment" xml:space="preserve">
     <value>Comment</value>
@@ -129,11 +138,17 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
   <data name="DateAdded" xml:space="preserve">
     <value>Date added</value>
   </data>
   <data name="DateOfLastVisit" xml:space="preserve">
     <value>Date of last visit</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
@@ -180,14 +195,23 @@
   <data name="LatestVisitedCache" xml:space="preserve">
     <value>Latest visited caches</value>
   </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
   <data name="Length" xml:space="preserve">
-    <value>Can`t be more than 30 characters</value>
+    <value>Can`t be more than 20 characters</value>
+  </data>
+  <data name="LengthCacheName" xml:space="preserve">
+    <value>Can`t be more than 50 characters</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>LogIn</value>
   </data>
   <data name="LogOff" xml:space="preserve">
     <value>LogOff</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
   </data>
   <data name="Massage" xml:space="preserve">
     <value>On your e-mail arrived message. Click on the link in the message.</value>
@@ -200,6 +224,12 @@
   </data>
   <data name="MyPage" xml:space="preserve">
     <value>My Page</value>
+  </data>
+  <data name="NewCache" xml:space="preserve">
+    <value>New Cache</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New Password</value>
   </data>
   <data name="NotActivated" xml:space="preserve">
     <value>Email is not confirmed</value>
@@ -221,6 +251,9 @@
   </data>
   <data name="RegCompleted" xml:space="preserve">
     <value>Registration is completed</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>

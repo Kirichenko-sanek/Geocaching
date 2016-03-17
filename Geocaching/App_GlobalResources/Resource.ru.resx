@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
   <data name="AddComment" xml:space="preserve">
     <value>Добавить комментарий</value>
+  </data>
+  <data name="CacheName" xml:space="preserve">
+    <value>Название тайника</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Город</value>
   </data>
   <data name="Comment" xml:space="preserve">
     <value>Комментарий</value>
@@ -129,11 +138,17 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Подтвердить пароль</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>Страна</value>
+  </data>
   <data name="DateAdded" xml:space="preserve">
     <value>Дата добавления</value>
   </data>
   <data name="DateOfLastVisit" xml:space="preserve">
     <value>Дата последнего посещения</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
@@ -180,14 +195,23 @@
   <data name="LatestVisitedCache" xml:space="preserve">
     <value>Последние посещённые тайники</value>
   </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Широта</value>
+  </data>
   <data name="Length" xml:space="preserve">
-    <value>Не должно быть больше 30 символов</value>
+    <value>Не должно быть больше 20 символов</value>
+  </data>
+  <data name="LengthCacheName" xml:space="preserve">
+    <value>Не должно быть больше 50 символов</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Войти</value>
   </data>
   <data name="LogOff" xml:space="preserve">
     <value>Выйти</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Долгота</value>
   </data>
   <data name="Massage" xml:space="preserve">
     <value>На Вашу почту отправленно сообщение. Перейдите по ссылке, указаной в нём, для завершения регистрации</value>
@@ -200,6 +224,12 @@
   </data>
   <data name="MyPage" xml:space="preserve">
     <value>Моя страница</value>
+  </data>
+  <data name="NewCache" xml:space="preserve">
+    <value>Новый тайник</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Новый пароль</value>
   </data>
   <data name="NotActivated" xml:space="preserve">
     <value>Електронный адрес не подтверждён</value>
@@ -221,6 +251,9 @@
   </data>
   <data name="RegCompleted" xml:space="preserve">
     <value>Регистрация завершена</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Регион/Область</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>

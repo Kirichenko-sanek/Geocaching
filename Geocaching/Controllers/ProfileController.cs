@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using Geocaching.App_GlobalResources;
 using Geocaching.BL;
 using Geocaching.Core;
 using Geocaching.Filters;
@@ -134,7 +135,7 @@ namespace Geocaching.Controllers
                 if (upload != null && upload.ContentLength > 0)
                 {
                     var pic = new AddPhotos();
-                    pathPic = pic.AddImage(upload, Server.MapPath("~/images/Account/"), "~/images/Account/");
+                    pathPic = pic.AddImage(upload, Server.MapPath("/Images/Account/"), "/Images/Account/");
                 }
 
                 
@@ -154,6 +155,39 @@ namespace Geocaching.Controllers
             {
 
                 return View();
+            }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult EditPass()
+        {          
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPass(EditPassViewModel model, long id)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return View(model);
+                var user = _managerUser.GetById(id);
+                if (user.password != PasswordHashing.HashPassword
+                    (model.Password, user.password_salt))
+                    throw new Exception(Resource.WrongPassword);
+
+                var newSalt = PasswordHashing.GenerateSaltValue();
+                user.password_salt = newSalt;
+                user.password = PasswordHashing.HashPassword(model.NewPassword, newSalt);
+                _managerUser.Update(user);
+                return RedirectToRoute("UserPage");
+            }
+            catch (Exception e)
+            {
+                model.Error = e.Message;
+                return View(model);
             }
         }
 
