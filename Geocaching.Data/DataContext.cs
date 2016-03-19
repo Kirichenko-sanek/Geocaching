@@ -93,7 +93,7 @@ namespace Geocaching.Data
                 {
                     new Photo()
                     {
-                        name = "~/Images/Account/images.jpg",
+                        name = "/Images/Account/images.jpg",
                         date = DateTime.Now
                     },
                     new Photo()
@@ -104,8 +104,19 @@ namespace Geocaching.Data
                     new Photo()
                     {
                         name = "/Images/Cache/123.jpg",
+                        date = DateTime.Now
+                    },
+                    new Photo()
+                    {
+                        name = "/Images/Account/11.jpg",
+                        date = DateTime.Now
+                    },
+                    new Photo()
+                    {
+                        name = "/Images/Account/22.jpg",
                         date = DateTime.Now
                     }
+
                 };
                 foreach (var photo in photos) context.Photos.Add(photo);
                 context.SaveChanges();
@@ -115,12 +126,24 @@ namespace Geocaching.Data
                     new PhotoOfUser()
                     {
                         id_user = 1,
-                        id_photo = 1
+                        id_photo = 1,
+                        main_photo = true
                     },
                     new PhotoOfUser()
                     {
                         id_user = 2,
-                        id_photo = 1
+                        id_photo = 1,
+                        main_photo = true
+                    },
+                    new PhotoOfUser()
+                    {
+                        id_user = 1,
+                        id_photo = 4
+                    },
+                    new PhotoOfUser()
+                    {
+                        id_user = 1,
+                        id_photo = 5
                     }
                 };
                 foreach (var photoUser in photosOfUser) context.PhotoOfUser.Add(photoUser);

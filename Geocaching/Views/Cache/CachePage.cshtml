@@ -1,7 +1,7 @@
 ﻿@using Geocaching.App_GlobalResources
 @model Geocaching.ViewModels.CachePageViewModel
 @{
-    ViewBag.Title = "CachePage";
+    ViewBag.Title = Model.Name;
 }
 
 <section id="single-page-header">
@@ -52,7 +52,7 @@
                                         @Html.AntiForgeryToken()
                                         @Html.HiddenFor(model => Model.IdCache)
                                         @Html.HiddenFor(model => Model.IdUserCache)
-                                        <input type="submit" value=@Resource.Visit class="comment-btn"/>
+                                        <input type="submit" value=@Resource.Visit class="comment-btn" style = "width: 100%"/>
                                     }
                                 </div>
 
@@ -66,17 +66,13 @@
 </section>
 
 <section id="google-map">
-    <div id="map_canvas" data-latitude="@Model.Latitude" data-longitude="@Model.Longitude" style="width: 100%; height: 550px;"></div>
-</section>
-
-<section id="portfolio">
-    <div class="portfolio-area">
-        @Html.Partial("PhotosCache",Model.Photos)
-    </div>
+    <div id="map_canvas" data-latitude="@Model.Latitude" data-longitude="@Model.Longitude" style="width: 100%; height: 450px;"></div> 
 </section>
 
 
 
+@Html.Partial("Photos", Model.Photos)
+    
 <section id="blog-archive">
     <div class="container">
         <div class="row">
@@ -87,19 +83,43 @@
                         <div class="col-md-8">
                             <div class="comments-box-area">
                                 <h2>
-                                    @Resource.AddComment
+                                    @Resource.AddPhoto
                                 </h2>
-                                @using (Html.BeginForm("AddComment", "Cache", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                @using (Html.BeginForm("AddPhotoCache", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
                                 {
                                     @Html.AntiForgeryToken()
-                                    @Html.HiddenFor(model =>Model.IdCache)
+                                    @Html.HiddenFor(model => Model.IdCache)
+                                    <input type="file" id="NewPhoto" name="upload" lang="en-US"/>
+                                    <br /><p>
+                                        @Html.ValidationMessageFor(model => model.NewPhoto, "", new { @class = "control-label" })
+                                    </p>
+                                    <br /><input type="submit" value=@Resource.AddPhoto class="comment-btn" style="width: 100%" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="comments-box-area">
+                                <h2>
+                                    @Resource.AddComment
+                                </h2>
+                                @using (Html.BeginForm("AddComment", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.HiddenFor(model => Model.IdCache)
                                     @Html.HiddenFor(model => Model.IdUserInSystem)
-                                    @Html.TextAreaFor(model => model.NewComment,  new { @style = "width: 100%", @placeholder = Resource.Comment, @rows = "3" , @class = "form-control" })
-                                    <input type="submit" value=@Resource.AddComment class="comment-btn"/>
-                                }                               
+                                    @Html.TextAreaFor(model => model.NewComment, new {@style = "width: 100%", @placeholder = Resource.Comment, @rows = "3", @class = "form-control"})
+                                    <br /><p>
+                                        @Html.ValidationMessageFor(model => model.NewComment, "", new { @class = "control-label" })
+                                    </p>
+                                    <br/><input type="submit" value=@Resource.AddComment class="comment-btn" style="width: 100%"/>
+                                    
+                                }
                             </div>
 
-                            
+
                             <div class="blog-archive-left">
                                 @Html.Partial("Comments", Model.Comments)
                             </div>

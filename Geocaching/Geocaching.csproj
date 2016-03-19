@@ -201,8 +201,9 @@
     <Compile Include="ViewModels\MyCachesVievModel.cs" />
     <Compile Include="ViewModels\CacheViewModel.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
+    <Compile Include="ViewModels\MyPhotosViewModel.cs" />
     <Compile Include="ViewModels\PassRecoveryViewModel.cs" />
-    <Compile Include="ViewModels\PhotoOfCachesViewModel.cs" />
+    <Compile Include="ViewModels\PhotoViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\UserPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +239,8 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Account\11.jpg" />
+    <Content Include="Images\Account\22.jpg" />
     <Content Include="Images\Account\images.jpg" />
     <Content Include="Images\Cache\123.jpg" />
     <Content Include="Scripts\bootstrap-progressbar.js" />
@@ -278,7 +281,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cache\CachePage.cshtml" />
-    <Content Include="Views\Shared\PhotosCache.cshtml" />
     <Content Include="Views\Shared\Comments.cshtml" />
     <Content Include="Views\Profile\VisitedCache.cshtml" />
     <Content Include="Views\Shared\Cache.cshtml" />
@@ -287,6 +289,9 @@
     <Content Include="Views\Profile\EditProfile.cshtml" />
     <Content Include="Views\Cache\AddCache.cshtml" />
     <Content Include="Views\Profile\EditPass.cshtml" />
+    <Content Include="Views\Profile\MyPhotos.cshtml" />
+    <Content Include="Views\Shared\Photos.cshtml" />
+    <Content Include="Views\Profile\UserPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -309,7 +314,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Views\Account\EndRegistration.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Profile\UserPage.cshtml" />
     <Content Include="Views\Account\EndPassRecovery.cshtml" />
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\Account\Registration.cshtml" />

@@ -10,5 +10,6 @@ namespace Geocaching.Interfases.Repository
     public interface IPhotoOfUserRepository<T> : IRepository<T> where T : PhotoOfUser
     {
         PhotoOfUser GetPhotoUserByUserId(long idUser);
+        IQueryable<PhotoOfUser> GetPhotoUser(long idUser);
     }
 }

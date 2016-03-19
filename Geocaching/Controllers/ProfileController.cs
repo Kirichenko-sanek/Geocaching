@@ -32,7 +32,7 @@ namespace Geocaching.Controllers
             _managerCache = managerCache;
             _managerPhotoOfCaches = managerPhotoOfCaches;
         }
-
+        [AllowAnonymous]
         public ActionResult UserPage(long? id)
         {
             if (id != null) return UserPage(new UserPageViewModel(), id);
@@ -42,6 +42,7 @@ namespace Geocaching.Controllers
         }
         
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult UserPage(UserPageViewModel model, long? id)
         {
             if (!ModelState.IsValid) return View();
@@ -53,18 +54,30 @@ namespace Geocaching.Controllers
                 model.Photo = photo_user.photo.name;
                 int count = 0;
 
-                var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(user.id).OrderByDescending(x => x.date);
+                
                 List<CacheViewModel> caches = new List<CacheViewModel>();
                 List<CacheViewModel> caches_my = new List<CacheViewModel>();
-                List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
+                List<PhotoViewModel> photos = new List<PhotoViewModel>();
+                List<PhotoViewModel> photos_user = new List<PhotoViewModel>();
 
+                var photos_added_user = _managerPhotoOfUser.GetPhotoUser(user.id).OrderByDescending(x => x.photo.date);
+                foreach (var photo in photos_added_user)
+                {
+                    photos_user.Add(Mapper.Map<PhotoOfUser,PhotoViewModel>(photo));
+                    if (count == 3) break;
+                    count++;
+                }
+                model.LastUserPhoto = photos_user;
+
+                var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(user.id).OrderByDescending(x => x.date);
+                count = 0;
                 foreach (var cache in visited_caches)
                 {
                     var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id_cache);
                     photos.Clear();
                     foreach (var photo in photos_cache)
                     {
-                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoViewModel>(photo));
 
                     }
 
@@ -88,7 +101,7 @@ namespace Geocaching.Controllers
                     photos.Clear();
                     foreach (var photo in photos_cache)
                     {
-                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoViewModel>(photo));
 
                     }
 
@@ -135,7 +148,7 @@ namespace Geocaching.Controllers
                 if (upload != null && upload.ContentLength > 0)
                 {
                     var pic = new AddPhotos();
-                    pathPic = pic.AddImage(upload, Server.MapPath("/Images/Account/"), "/Images/Account/");
+                    pathPic = pic.AddImage(upload, Server.MapPath("~/Images/Account/"), "~/Images/Account/");
                 }
 
                 
@@ -200,7 +213,7 @@ namespace Geocaching.Controllers
                 if (!ModelState.IsValid) return View();
                 var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(id).OrderByDescending(x => x.date);
                 List<CacheViewModel> caches = new List<CacheViewModel>();
-                List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
+                List<PhotoViewModel> photos = new List<PhotoViewModel>();
 
                 foreach (var cache in visited_caches)
                 {
@@ -208,7 +221,7 @@ namespace Geocaching.Controllers
                     photos.Clear();
                     foreach (var photo in photos_cache)
                     {
-                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoViewModel>(photo));
 
                     }
 
@@ -235,7 +248,7 @@ namespace Geocaching.Controllers
                 if (!ModelState.IsValid) return View();
                 var my_caches = _managerCache.GetCachesByIdUser(id).OrderByDescending(x => x.date_of_apperance);
                 List<CacheViewModel> caches = new List<CacheViewModel>();
-                List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
+                List<PhotoViewModel> photos = new List<PhotoViewModel>();
 
                 foreach (var cache in my_caches)
                 {
@@ -243,7 +256,7 @@ namespace Geocaching.Controllers
                     photos.Clear();
                     foreach (var photo in photos_cache)
                     {
-                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoViewModel>(photo));
 
                     }
 
@@ -261,5 +274,46 @@ namespace Geocaching.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public ActionResult MyPhotos(MyPhotosViewModel model, long id)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return View();
+                var photos_added_user = _managerPhotoOfUser.GetPhotoUser(id).OrderByDescending(x => x.photo.date);
+                List<PhotoViewModel> photos = new List<PhotoViewModel>();
+                
+                foreach (var photo in photos_added_user)
+                {
+                    photos.Add(Mapper.Map<PhotoOfUser, PhotoViewModel>(photo));               
+                }
+                model.MyPhoto = photos;
+                return View(model);
+            }
+            catch (Exception)
+            {
+
+                return View();
+            }
+        }
+
+        [AllowAnonymous]
+        public ActionResult AddPhotoUser(UserPageViewModel model, HttpPostedFileBase upload)
+        {
+            var pic = new AddPhotos();
+            var patPic = pic.AddImage(upload, Server.MapPath("/Images/Account/"), "/Images/Account/");
+            var entity = new PhotoOfUser()
+            {
+                id_user = model.IdUserPage,
+                photo = new Photo()
+                {
+                    name = patPic,
+                    date = DateTime.Now
+                }
+            };
+            _managerPhotoOfUser.Add(entity);
+            
+            return RedirectToAction("UserPage", new { id = model.IdUserPage });
+        }
     }
 }

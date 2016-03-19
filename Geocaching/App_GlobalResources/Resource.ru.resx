@@ -123,6 +123,9 @@
   <data name="AddComment" xml:space="preserve">
     <value>Добавить комментарий</value>
   </data>
+  <data name="AddPhoto" xml:space="preserve">
+    <value>Добавить фото</value>
+  </data>
   <data name="CacheName" xml:space="preserve">
     <value>Название тайника</value>
   </data>
@@ -224,6 +227,9 @@
   </data>
   <data name="MyPage" xml:space="preserve">
     <value>Моя страница</value>
+  </data>
+  <data name="MyPhotos" xml:space="preserve">
+    <value>Мои фотографии</value>
   </data>
   <data name="NewCache" xml:space="preserve">
     <value>Новый тайник</value>

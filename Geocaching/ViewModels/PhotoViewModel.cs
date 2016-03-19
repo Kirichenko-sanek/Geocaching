@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Geocaching.ViewModels
 {
-    public class PhotoOfCachesViewModel
+    public class PhotoViewModel
     {
         public long Id { get; set; }
         public string Name { get; set; }

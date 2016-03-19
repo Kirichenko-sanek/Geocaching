@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Geocaching.Core;
 using Geocaching.Interfases.Repository;
 
@@ -17,7 +13,13 @@ namespace Geocaching.Data.Repository
 
         public PhotoOfUser GetPhotoUserByUserId(long idUser)
         {
-            return _context.PhotoOfUser.FirstOrDefault(x => x.id_user == idUser);
+            return _context.PhotoOfUser.FirstOrDefault(x => (x.id_user == idUser && x.main_photo == true));
+        }
+
+
+        public IQueryable<PhotoOfUser> GetPhotoUser(long idUser)
+        {
+            return _context.PhotoOfUser.Where(x => (x.id_user == idUser && x.main_photo == false));
         }
     }
 }

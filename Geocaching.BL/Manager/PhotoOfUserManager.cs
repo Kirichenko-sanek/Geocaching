@@ -1,4 +1,5 @@
-﻿using Geocaching.Core;
+﻿using System.Linq;
+using Geocaching.Core;
 using Geocaching.Interfases.Manager;
 using Geocaching.Interfases.Repository;
 using Geocaching.Interfases.Validator;
@@ -18,6 +19,11 @@ namespace Geocaching.BL.Manager
         public PhotoOfUser GetPhotoUserByUserId(long idUser)
         {
             return _photoOfUserRepository.GetPhotoUserByUserId(idUser);
+        }
+
+        public IQueryable<PhotoOfUser> GetPhotoUser(long idUser)
+        {
+            return _photoOfUserRepository.GetPhotoUser(idUser);
         }
     }
 }

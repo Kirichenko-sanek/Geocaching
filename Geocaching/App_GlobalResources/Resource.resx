@@ -123,6 +123,9 @@
   <data name="AddComment" xml:space="preserve">
     <value>Add Comment</value>
   </data>
+  <data name="AddPhoto" xml:space="preserve">
+    <value>Add Photo</value>
+  </data>
   <data name="CacheName" xml:space="preserve">
     <value>Cache Name</value>
   </data>
@@ -224,6 +227,9 @@
   </data>
   <data name="MyPage" xml:space="preserve">
     <value>My Page</value>
+  </data>
+  <data name="MyPhotos" xml:space="preserve">
+    <value>My Photos</value>
   </data>
   <data name="NewCache" xml:space="preserve">
     <value>New Cache</value>

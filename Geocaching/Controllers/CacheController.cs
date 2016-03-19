@@ -42,10 +42,10 @@ namespace Geocaching.Controllers
                 model = Mapper.Map<Cache, CachePageViewModel>(cache);
                 model.IdUserInSystem = Convert.ToInt64(Session["UserId"]);
                 var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);
-                List<PhotoOfCachesViewModel> photos = new List<PhotoOfCachesViewModel>();
+                List<PhotoViewModel> photos = new List<PhotoViewModel>();
                 foreach (var photo in photos_cache)
                 {                  
-                    photos.Add(Mapper.Map<PhotoOfCaches, PhotoOfCachesViewModel>(photo));
+                    photos.Add(Mapper.Map<PhotoOfCaches, PhotoViewModel>(photo));
                 }
                 model.Photos = photos;
                 model.MainPhoto =  photos[0].Name;
@@ -137,5 +137,22 @@ namespace Geocaching.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public ActionResult AddPhotoCache(CachePageViewModel model, HttpPostedFileBase upload)
+        {
+            var pic = new AddPhotos();
+            var patPic = pic.AddImage(upload, Server.MapPath("/Images/Cache/"), "/Images/Cache/");
+            var entity = new PhotoOfCaches()
+            {
+                id_cache = model.IdCache,
+                photo = new Photo()
+                {
+                    name = patPic,
+                    date = DateTime.Now
+                }
+            };
+            _managerPhotoOfCaches.Add(entity);
+            return RedirectToAction("CachePage", new { id = model.IdCache });
+        }
     }
 }

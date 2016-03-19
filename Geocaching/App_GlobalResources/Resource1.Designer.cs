@@ -79,6 +79,15 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Photo.
+        /// </summary>
+        public static string AddPhoto {
+            get {
+                return ResourceManager.GetString("AddPhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cache Name.
         /// </summary>
         public static string CacheName {
@@ -381,6 +390,15 @@ namespace Geocaching.App_GlobalResources {
         public static string MyPage {
             get {
                 return ResourceManager.GetString("MyPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Photos.
+        /// </summary>
+        public static string MyPhotos {
+            get {
+                return ResourceManager.GetString("MyPhotos", resourceCulture);
             }
         }
         

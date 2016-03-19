@@ -30,10 +30,55 @@
                         Hello
                     </div>
                     <div>
-                        @Html.ActionLink("Hello", "CachePage", "Cache", new { id = 1 }, null)
-                        @Html.ActionLink("Hello222","VisitedCache", new { id = Model.IdUserPage }, null)
-                        @Html.ActionLink(@Resource.EditProfile, "EditProfile", new { id = Model.IdUserPage }, null)
-                        @Html.ActionLink(@Resource.EditPassword, "EditPass", new { id = Model.IdUserPage }, null)
+                        @Html.ActionLink("Hello", "CachePage", "Cache", new {id = 1}, null)
+                        @Html.ActionLink("Hello222", "VisitedCache", new {id = Model.IdUserPage}, null)
+                        @Html.ActionLink(@Resource.EditProfile, "EditProfile", new {id = Model.IdUserPage}, null)
+                        @Html.ActionLink(@Resource.EditPassword, "EditPass", new {id = Model.IdUserPage}, null)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="col-md-12">
+    <div class="title-area">
+        <h2 class="title"><br/>@Resource.MyPhotos</h2>
+        <span class="line"></span>
+        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+            <br/>@Html.ActionLink(Resource.ViewAll, "MyPhotos", "Profile", new {id = Model.IdUserPage}, null)
+
+        }
+       </div>
+</div>
+
+@Html.Partial("Photos", Model.LastUserPhoto)
+
+<section id="blog-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-archive-area">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="comments-box-area">
+                                <h2>
+                                    @Resource.AddPhoto
+                                </h2>
+                                @using (Html.BeginForm("AddPhotoUser", "Profile", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.HiddenFor(model => Model.IdUserPage)
+                                    <input type="file" id="NewPhoto" name="upload" lang="en-US" />
+                                    <br /><p>
+                                        @Html.ValidationMessageFor(model => model.NewPhoto, "", new { @class = "control-label" })
+                                    </p>
+                                    <br /><input type="submit" value=@Resource.AddPhoto class="comment-btn" style="width: 100%" />
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,7 +95,7 @@
                     <span class="line"></span>
                     @if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
-                        <br/>@Html.ActionLink(Resource.ViewAll, "MyCaches", "Profile", new { id = Model.IdUserPage }, null)
+                        <br />@Html.ActionLink(Resource.ViewAll, "MyCaches", "Profile", new { id = Model.IdUserPage }, null)
                     }
                 </div>
             </div>
@@ -61,10 +106,9 @@
                     </div>
                 </div>
             </div>
-            
             <div class="col-md-12">
                 <div class="title-area">
-                    <h2 class="title"><br/>@Resource.LatestVisitedCache</h2>
+                    <h2 class="title"><br />@Resource.LatestVisitedCache</h2>
                     <span class="line"></span>
                     @if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
@@ -79,7 +123,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
+
+
+

@@ -14,10 +14,11 @@ namespace Geocaching.ViewModels
         public DateTime DateOfApperance { get; set; }
         public DateTime DateOfLastVisit { get; set; }
         public string UserName { get; set; }
-        public List<PhotoOfCachesViewModel> Photos { get; set; } 
+        public List<PhotoViewModel> Photos { get; set; } 
         public string MainPhoto { get; set; }
         public List<CommentsViewModel> Comments { get; set; }
         public string NewComment { get; set; }
+        public string NewPhoto { get; set; }
         public CacheViewModel Visit { get; set; }
         
 

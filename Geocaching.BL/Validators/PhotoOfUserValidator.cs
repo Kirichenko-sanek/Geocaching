@@ -16,8 +16,6 @@ namespace Geocaching.BL.Validators
         public bool IsValid(PhotoOfUser entity)
         {
             return IsExists(entity.id_user)
-                   && IsExists(entity.id_photo)
-                   && entity.user != null
                    && entity.photo != null;
         }
 

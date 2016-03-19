@@ -40,7 +40,7 @@ namespace Geocaching
                 m.City = p.address.city;
             });
 
-            Mapper.CreateMap<PhotoOfCaches, PhotoOfCachesViewModel>().AfterMap((p, m) =>
+            Mapper.CreateMap<PhotoOfCaches, PhotoViewModel>().AfterMap((p, m) =>
             {
                 m.Id = p.photo.id;
                 m.Name = p.photo.name;
@@ -130,7 +130,12 @@ namespace Geocaching
                 m.city = p.City;
             });
 
-            
+            Mapper.CreateMap<PhotoOfUser, PhotoViewModel>().AfterMap((p, m) =>
+            {
+                m.Id = p.photo.id;
+                m.Name = p.photo.name;
+                m.Date = p.photo.date;
+            });
         }
     }
 }

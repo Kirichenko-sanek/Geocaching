@@ -1,0 +1,22 @@
+﻿@using Geocaching.App_GlobalResources
+@model Geocaching.ViewModels.MyPhotosViewModel
+@{
+    ViewBag.Title = Resource.MyPhotos;
+}
+<section id="single-page-header">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-page-header-left">
+                        <h2>
+                            @Resource.MyPhotos
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.Partial("Photos", Model.MyPhoto)
