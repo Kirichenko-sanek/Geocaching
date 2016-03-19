@@ -32,6 +32,7 @@ namespace Geocaching.Controllers
             _managerCache = managerCache;
             _managerPhotoOfCaches = managerPhotoOfCaches;
         }
+
         [AllowAnonymous]
         public ActionResult UserPage(long? id)
         {
@@ -44,10 +45,10 @@ namespace Geocaching.Controllers
         [HttpPost]
         [AllowAnonymous]
         public ActionResult UserPage(UserPageViewModel model, long? id)
-        {
-            if (!ModelState.IsValid) return View();
+        {            
             try
             {
+                if (!ModelState.IsValid) return View();
                 var user = _managerUser.GetById((long)id);
                 var photo_user = _managerPhotoOfUser.GetPhotoUserByUserId(user.id);
                 model = Mapper.Map<User, UserPageViewModel>(user);
@@ -300,20 +301,27 @@ namespace Geocaching.Controllers
         [AllowAnonymous]
         public ActionResult AddPhotoUser(UserPageViewModel model, HttpPostedFileBase upload)
         {
-            var pic = new AddPhotos();
-            var patPic = pic.AddImage(upload, Server.MapPath("/Images/Account/"), "/Images/Account/");
-            var entity = new PhotoOfUser()
+            try
             {
-                id_user = model.IdUserPage,
-                photo = new Photo()
+                var pic = new AddPhotos();
+                var patPic = pic.AddImage(upload, Server.MapPath("/Images/Account/"), "/Images/Account/");
+                var entity = new PhotoOfUser()
                 {
-                    name = patPic,
-                    date = DateTime.Now
-                }
-            };
-            _managerPhotoOfUser.Add(entity);
+                    id_user = model.IdUserPage,
+                    photo = new Photo()
+                    {
+                        name = patPic,
+                        date = DateTime.Now
+                    }
+                };
+                _managerPhotoOfUser.Add(entity);
+                return RedirectToAction("UserPage", new { id = model.IdUserPage });
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("UserPage", new { id = model.IdUserPage });
+            }
             
-            return RedirectToAction("UserPage", new { id = model.IdUserPage });
         }
     }
 }
