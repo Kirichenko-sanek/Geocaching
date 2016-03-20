@@ -19,5 +19,10 @@ namespace Geocaching.Data.Repository
         {
             return _context.PhotoOfCaches.Where(x => x.id_cache == idCache);
         }
+
+        public PhotoOfCaches GetPhootOfCachesByPhoto(long idPhoto)
+        {
+            return _context.PhotoOfCaches.FirstOrDefault(x => x.id_photo == idPhoto);
+        }
     }
 }

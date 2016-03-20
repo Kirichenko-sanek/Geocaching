@@ -7,5 +7,6 @@ namespace Geocaching.Interfases.Manager
     {
         PhotoOfUser GetPhotoUserByUserId(long idUser);
         IQueryable<PhotoOfUser> GetPhotoUser(long idUser);
+        PhotoOfUser GetPhootOfUserByPhoto(long idPhoto);
     }
 }

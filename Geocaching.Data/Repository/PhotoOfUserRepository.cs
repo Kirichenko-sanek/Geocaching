@@ -16,10 +16,14 @@ namespace Geocaching.Data.Repository
             return _context.PhotoOfUser.FirstOrDefault(x => (x.id_user == idUser && x.main_photo == true));
         }
 
-
         public IQueryable<PhotoOfUser> GetPhotoUser(long idUser)
         {
             return _context.PhotoOfUser.Where(x => (x.id_user == idUser && x.main_photo == false));
+        }
+
+        public PhotoOfUser GetPhootOfUserByPhoto(long idPhoto)
+        {
+            return _context.PhotoOfUser.FirstOrDefault(x => x.id_photo == idPhoto);
         }
     }
 }

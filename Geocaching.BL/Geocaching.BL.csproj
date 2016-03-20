@@ -55,6 +55,7 @@
     <Compile Include="Manager\CommentsManager.cs" />
     <Compile Include="Manager\ListOfVisitedCachesManager.cs" />
     <Compile Include="Manager\Manager.cs" />
+    <Compile Include="Manager\PhotoManager.cs" />
     <Compile Include="Manager\PhotoOfCachesManager.cs" />
     <Compile Include="Manager\PhotoOfUserManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Validators\ListOfVisitedCachesValidator.cs" />
     <Compile Include="Validators\PhotoOfCachesValidator.cs" />
     <Compile Include="Validators\PhotoOfUserValidator.cs" />
+    <Compile Include="Validators\PhotoValidator.cs" />
     <Compile Include="Validators\UserValidator.cs" />
   </ItemGroup>
   <ItemGroup>

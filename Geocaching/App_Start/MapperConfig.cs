@@ -45,6 +45,7 @@ namespace Geocaching
                 m.Id = p.photo.id;
                 m.Name = p.photo.name;
                 m.Date = p.photo.date;
+                m.IDUserAdded = p.cache.id_user;
             });
 
             Mapper.CreateMap<Comment, CommentsViewModel>().AfterMap((p, m) =>
@@ -140,6 +141,7 @@ namespace Geocaching
                 m.Id = p.photo.id;
                 m.Name = p.photo.name;
                 m.Date = p.photo.date;
+                m.IDUserAdded = p.id_user;
             });
         }
     }

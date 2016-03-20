@@ -1,5 +1,6 @@
-﻿@model List<Geocaching.ViewModels.PhotoViewModel>
-
+﻿@using Geocaching.App_GlobalResources
+@model List<Geocaching.ViewModels.PhotoViewModel>
+@{ long userInSystem = Convert.ToInt64(Session["UserId"]);  }
 <section id="portfolio">
     <div class="portfolio-area">
         <div id="mixit-container" class="portfolio-container">
@@ -12,6 +13,12 @@
                             <a class="fancybox view-icon" data-fancybox-group="gallery" href="@photo.Name"><i class="fa fa-search-plus"></i></a>
                             <div class="portfolio-title">
                                 <h4>@photo.Date</h4>
+                                @if (photo.IDUserAdded == userInSystem || userInSystem == 1)
+                                {
+                                    <span>
+                                        @Html.ActionLink(Resource.Delete, "DeletePhoto","Profile", new { idPhoto = photo.Id }, new { @style = "color: #fff" })
+                                    </span>
+                                }
                             </div>
                         </div>
                     </div>

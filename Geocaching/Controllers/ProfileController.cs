@@ -21,16 +21,19 @@ namespace Geocaching.Controllers
         private readonly IListOfVisitedCachesManager<ListOfVisitedCaches> _managerListOfVisitedCaches;
         private readonly ICacheManager<Cache> _managerCache;
         private readonly IPhotoOfCachesManager<PhotoOfCaches> _managerPhotoOfCaches;
+        private readonly IPhotoManager<Photo> _managerPhoto;
 
         public ProfileController(IUserManager<User> managerUser, IPhotoOfUserManager<PhotoOfUser> managerPhotoOfUser,
             IListOfVisitedCachesManager<ListOfVisitedCaches> managerListOfVisitedCaches,
-            ICacheManager<Cache> managerCache, IPhotoOfCachesManager<PhotoOfCaches> managerPhotoOfCaches)
+            ICacheManager<Cache> managerCache, IPhotoOfCachesManager<PhotoOfCaches> managerPhotoOfCaches,
+            IPhotoManager<Photo> managerPhoto)
         {
             _managerUser = managerUser;
             _managerPhotoOfUser = managerPhotoOfUser;
             _managerListOfVisitedCaches = managerListOfVisitedCaches;
             _managerCache = managerCache;
             _managerPhotoOfCaches = managerPhotoOfCaches;
+            _managerPhoto = managerPhoto;
         }
 
         [AllowAnonymous]
@@ -320,8 +323,34 @@ namespace Geocaching.Controllers
             catch (Exception)
             {
                 return RedirectToAction("UserPage", new { id = model.IdUserPage });
+            }           
+        }
+
+        [AllowAnonymous]
+        public ActionResult DeletePhoto(long idPhoto)
+        {
+            try
+            {
+                var photoCache = _managerPhotoOfCaches.GetPhootOfCachesByPhoto(idPhoto);
+                var photoUser = _managerPhotoOfUser.GetPhootOfUserByPhoto(idPhoto);
+                if (photoCache != null)
+                {
+                    _managerPhotoOfCaches.Delete(photoCache);
+                    return RedirectToRoute("CachePage", new { id = photoCache.id_cache });
+                }
+                else if (photoUser != null)
+                {
+                    _managerPhotoOfUser.Delete(photoUser);
+                    return RedirectToAction("UserPage", new { id = photoUser.id_user});
+                }
+
+                return RedirectToAction("Index", "Home");
+
             }
-            
+            catch (Exception)
+            {
+                return RedirectToAction("Index","Home");
+            }
         }
     }
 }

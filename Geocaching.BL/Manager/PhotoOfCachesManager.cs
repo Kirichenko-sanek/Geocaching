@@ -24,5 +24,10 @@ namespace Geocaching.BL.Manager
         {
             return _photoOfCachesRepository.GetPhotoOfCachesByCacheId(idCache);
         }
+
+        public PhotoOfCaches GetPhootOfCachesByPhoto(long idPhoto)
+        {
+            return _photoOfCachesRepository.GetPhootOfCachesByPhoto(idPhoto);
+        }
     }
 }
