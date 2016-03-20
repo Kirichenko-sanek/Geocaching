@@ -167,8 +167,49 @@ namespace Geocaching.Controllers
             catch (Exception)
             {
                 return RedirectToAction("CachePage", new { id = model.IdCache });
+            }            
+        }
+
+        /*[AllowAnonymous]
+        public ActionResult Search()
+        {          
+            return View();           
+        }*/
+
+        //[HttpPost]
+        [AllowAnonymous]
+        public ActionResult Search(SearchViewModel model)
+        {
+            try
+            {
+                var search_caches = _managerCache.Search(model.Name, model.Longitude, model.Latitude, model.Country,
+                    model.Region, model.City);
+                List< CacheViewModel > caches = new List<CacheViewModel>();
+                List<PhotoViewModel> photos = new List<PhotoViewModel>();
+
+                foreach (var cache in search_caches)
+                {
+                    var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);
+                    photos.Clear();
+                    foreach (var photo in photos_cache)
+                    {
+                        photos.Add(Mapper.Map<PhotoOfCaches, PhotoViewModel>(photo));
+
+                    }
+
+                    var a = Mapper.Map<Cache, CacheViewModel>(cache);
+                    a.Photo = photos[0].Name;
+
+                    caches.Add(a);
+                }
+                model.Cache = caches;
+
+                return View(model);
             }
-            
+            catch (Exception)
+            {
+                return View();
+            }
         }
     }
 }

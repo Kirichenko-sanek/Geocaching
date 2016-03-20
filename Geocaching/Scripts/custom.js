@@ -30,10 +30,9 @@ jQuery(function($){
 	/*  1. SEARCH BOX SLIDE
 	/* ----------------------------------------------------------- */ 
 
-	$('#search-icon').click(function(e){
-		e.preventDefault();
-     	$('.header-top').slideToggle(500);     
-  	});
+    $('#search-icon').click(function (e) {
+        location.href = '/Cache/Search';
+    });
 	
 			
 	/* ----------------------------------------------------------- */

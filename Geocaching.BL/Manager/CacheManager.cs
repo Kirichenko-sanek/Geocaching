@@ -23,5 +23,11 @@ namespace Geocaching.BL.Manager
         {
             return _cacheRepository.GetCachesByIdUser(id);
         }
+        public IQueryable<Cache> Search(string name, double longitude, double latityde, string country, string region,
+            string city)
+
+        {
+            return _cacheRepository.Search(name, longitude, latityde, country, region, city);
+        }
     }
 }

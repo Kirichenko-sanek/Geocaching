@@ -35,7 +35,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @placeholder = Resource.CacheName, @class = "form-control" } })
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.CacheName, @class = "form-control" } })
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                @Html.EditorFor(model => model.Longitude, new {htmlAttributes = new {@placeholder = Resource.Longitude, @class = "form-control"}})
+                                @Html.EditorFor(model => model.Longitude, new {htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.Longitude, @class = "form-control"}})
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -68,7 +68,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                @Html.EditorFor(model => model.Latitude, new {htmlAttributes = new {@placeholder = Resource.Latitude, @class = "form-control"}})
+                                @Html.EditorFor(model => model.Latitude, new {htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.Latitude, @class = "form-control"}})
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -79,7 +79,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                @Html.EditorFor(model => model.Country, new {htmlAttributes = new {@placeholder = Resource.Country, @class = "form-control"}})
+                                @Html.EditorFor(model => model.Country, new {htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.Country, @class = "form-control"}})
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                @Html.EditorFor(model => model.Region, new {htmlAttributes = new {@placeholder = Resource.Region, @class = "form-control"}})
+                                @Html.EditorFor(model => model.Region, new {htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.Region, @class = "form-control"}})
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @placeholder = Resource.City, @class = "form-control" } })
+                                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.City, @class = "form-control" } })
                             </div>
                         </div>
                     </div>

@@ -89,6 +89,11 @@ namespace Geocaching
                 m.DateVisit = p.date_of_last_visit;
                 m.DateAdded = p.date_of_apperance;
                 m.UserName = p.user.first_name + " " + p.user.last_name;
+                m.Longitude = p.address.longitude;
+                m.Latitude = p.address.latitude;
+                m.Country = p.address.country;
+                m.Region = p.address.region;
+                m.City = p.address.city;
             });
 
             Mapper.CreateMap<User, EditProfileViewModel>().AfterMap((p, m) =>

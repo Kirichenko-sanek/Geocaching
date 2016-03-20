@@ -45,17 +45,18 @@
                                         <h4>@Model.Description</h4>
                                     </div>
                                 </article>
-
-                                <div class="comments-box-area">
-                                    @using (Html.BeginForm("Visit", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        @Html.HiddenFor(model => Model.IdCache)
-                                        @Html.HiddenFor(model => Model.IdUserCache)
-                                        <input type="submit" value=@Resource.Visit class="comment-btn" style = "width: 100%"/>
-                                    }
-                                </div>
-
+                                @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                                {
+                                    <div class="comments-box-area">
+                                        @using (Html.BeginForm("Visit", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.HiddenFor(model => Model.IdCache)
+                                            @Html.HiddenFor(model => Model.IdUserCache)
+                                            <input type="submit" value=@Resource.Visit class="comment-btn" style="width: 100%"/>
+                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -78,48 +79,56 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="blog-archive-area">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="comments-box-area">
-                                <h2>
-                                    @Resource.AddPhoto
-                                </h2>
-                                @using (Html.BeginForm("AddPhotoCache", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    @Html.HiddenFor(model => Model.IdCache)
-                                    <input type="file" id="NewPhoto" name="upload" lang="en-US"/>
-                                    <br /><p>
-                                        @Html.ValidationMessageFor(model => model.NewPhoto, "", new { @class = "control-label" })
-                                    </p>
-                                    <br /><input type="submit" value=@Resource.AddPhoto class="comment-btn" style="width: 100%" />
-                                }
+                    @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="comments-box-area">
+                                    <h2>
+                                        @Resource.AddPhoto
+                                    </h2>
+                                    @using (Html.BeginForm("AddPhotoCache", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => Model.IdCache)
+                                        <input type="file" id="NewPhoto" name="upload" lang="en-US"/>
+                                        <br/>
+                                        <p>
+                                            @Html.ValidationMessageFor(model => model.NewPhoto, "", new {@class = "control-label"})
+                                        </p>
+                                        <br/>
+                                        <input type="submit" value=@Resource.AddPhoto class="comment-btn" style="width: 100%"/>
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
-                            <div class="comments-box-area">
-                                <h2>
-                                    @Resource.AddComment
-                                </h2>
-                                @using (Html.BeginForm("AddComment", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    @Html.HiddenFor(model => Model.IdCache)
-                                    @Html.HiddenFor(model => Model.IdUserInSystem)
-                                    @Html.TextAreaFor(model => model.NewComment, new {@style = "width: 100%", @placeholder = Resource.Comment, @rows = "3", @class = "form-control"})
-                                    <br /><p>
-                                        @Html.ValidationMessageFor(model => model.NewComment, "", new { @class = "control-label" })
-                                    </p>
-                                    <br/><input type="submit" value=@Resource.AddComment class="comment-btn" style="width: 100%"/>
-                                    
-                                }
-                            </div>
+                            @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
+                                <div class="comments-box-area">
+                                    <h2>
+                                        @Resource.AddComment
+                                    </h2>
+                                    @using (Html.BeginForm("AddComment", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => Model.IdCache)
+                                        @Html.HiddenFor(model => Model.IdUserInSystem)
+                                        @Html.TextAreaFor(model => model.NewComment, new {@style = "width: 100%", @placeholder = Resource.Comment, @rows = "3", @class = "form-control"})
+                                        <br/>
+                                        <p>
+                                            @Html.ValidationMessageFor(model => model.NewComment, "", new {@class = "control-label"})
+                                        </p>
+                                        <br/>
+                                        <input type="submit" value=@Resource.AddComment class="comment-btn" style="width: 100%"/>
 
-
+                                    }
+                                </div>
+                            }
                             <div class="blog-archive-left">
                                 @Html.Partial("Comments", Model.Comments)
                             </div>

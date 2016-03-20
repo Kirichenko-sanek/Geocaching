@@ -1,0 +1,44 @@
+﻿@using Geocaching.App_GlobalResources
+@model Geocaching.ViewModels.SearchViewModel
+@{
+    ViewBag.Title = @Resource.Search;
+}
+<section id="single-page-header">
+    <div class="overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-page-header-left">
+                        <h2>@Resource.Search</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blog-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-archive-area">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="blog-archive-left">
+                                @Html.Partial("Cache", Model.Cache)
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.Partial("SearchList")
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</section>
+
+
+
+
+

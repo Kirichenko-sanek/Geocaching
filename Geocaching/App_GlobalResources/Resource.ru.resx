@@ -267,6 +267,9 @@
   <data name="Registration" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
   <data name="Send" xml:space="preserve">
     <value>Отправить</value>
   </data>
