@@ -170,13 +170,6 @@ namespace Geocaching.Controllers
             }            
         }
 
-        /*[AllowAnonymous]
-        public ActionResult Search()
-        {          
-            return View();           
-        }*/
-
-        //[HttpPost]
         [AllowAnonymous]
         public ActionResult Search(SearchViewModel model)
         {
@@ -210,6 +203,47 @@ namespace Geocaching.Controllers
             {
                 return View();
             }
+        }
+
+        [AllowAnonymous]
+        public ActionResult DeleteCache(long idCache)
+        {
+            List<ListOfVisitedCaches> listCaches = new List<ListOfVisitedCaches>();
+            List<PhotoOfCaches> listPhoto = new List<PhotoOfCaches>();
+            List<Comment> listComments = new List<Comment>();
+
+            var visited_caches = _managerListOfVisitedCaches.GetCacheByIdCache(idCache);
+            foreach (var visit_cache in visited_caches)
+            {
+                listCaches.Add(visit_cache);
+            }
+            foreach (var visit_cache in listCaches)
+            {
+                _managerListOfVisitedCaches.Delete(visit_cache);
+            }
+
+            var photo_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(idCache);
+            foreach (var photo in photo_cache)
+            {
+                listPhoto.Add(photo);
+            }
+            foreach (var photo in listPhoto)
+            {
+                _managerPhotoOfCaches.Delete(photo);
+            }
+
+            var comments_cache = _managerComments.GetCommentsByCacheId(idCache);
+            foreach (var comment in comments_cache)
+            {
+                listComments.Add(comment);
+            }
+            foreach (var comment in listComments)
+            {
+                _managerComments.Delete(comment);
+            }
+            var cache = _managerCache.GetById(idCache);
+            _managerCache.Delete(cache);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

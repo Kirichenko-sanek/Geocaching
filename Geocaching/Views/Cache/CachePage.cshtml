@@ -33,19 +33,35 @@
                                     <div class="blog-news-title">
                                         <p>
                                             @Html.ActionLink(@Model.UserName, "UserPage", "Profile", new {id = Model.IdUserCache}, null)
+                                            @Html.ActionLink(@Resource.Delete,"DeleteCache","Cache", new { idCache = Model.IdCache }, null)
                                         </p>
                                         <p>
-                                            <span class="blog-date">@Resource.DateAdded : @Model.DateOfApperance</span>
+                                            <span class="blog-date" style="color: #000">@Resource.DateAdded : @Model.DateOfApperance</span>
                                         </p>
                                         <p>
-                                            <span class="blog-date">@Resource.DateOfLastVisit : @Model.DateOfLastVisit</span>
+                                            <span class="blog-date" style="color: #000">@Resource.DateOfLastVisit : @Model.DateOfLastVisit</span>                                           
+                                        </p>
+                                        <p>
+                                            <span style="color: #000"> @Resource.Longitude : @Model.Longitude</span>
+                                        </p>
+                                        <p>
+                                            <span style="color: #000"> @Resource.Latitude : @Model.Latitude</span>
+                                        </p>
+                                        <p>
+                                            <span style="color: #000"> @Resource.Country : @Model.Country</span>
+                                        </p>
+                                        <p>
+                                            <span style="color: #000"> @Resource.Region : @Model.Region</span>
+                                        </p>
+                                        <p>
+                                            <span style="color: #000"> @Resource.City : @Model.City</span>
                                         </p>
                                     </div>
                                     <div class="blog-news-details blog-single-details">
                                         <h4>@Model.Description</h4>
                                     </div>
                                 </article>
-                                @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                                @if (HttpContext.Current.User.Identity.IsAuthenticated)
                                 {
                                     <div class="comments-box-area">
                                         @using (Html.BeginForm("Visit", "Cache", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
@@ -79,7 +95,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="blog-archive-area">
-                    @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                    @if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
                         <div class="row">
                             <div class="col-md-2"></div>

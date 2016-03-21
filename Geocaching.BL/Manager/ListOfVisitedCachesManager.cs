@@ -25,5 +25,10 @@ namespace Geocaching.BL.Manager
         {
             return _listOfVisitedCachesRepository.GetCacheByIdUser(id);
         }
+
+        public IQueryable<ListOfVisitedCaches> GetCacheByIdCache(long id)
+        {
+            return _listOfVisitedCachesRepository.GetCacheByIdCache(id);
+        }
     }
 }

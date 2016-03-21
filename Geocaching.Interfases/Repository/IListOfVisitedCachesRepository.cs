@@ -10,5 +10,6 @@ namespace Geocaching.Interfases.Repository
     public interface IListOfVisitedCachesRepository<T> : IRepository<T> where T : ListOfVisitedCaches
     {
         IQueryable<ListOfVisitedCaches> GetCacheByIdUser(long id);
+        IQueryable<ListOfVisitedCaches> GetCacheByIdCache(long id);
     }
 }

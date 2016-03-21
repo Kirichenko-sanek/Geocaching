@@ -20,7 +20,7 @@ namespace Geocaching.BL.Validators
 
         public bool IsValid(Cache entyty)
         {
-            return IsExists(entyty.id_user);
+            return IsExists(entyty.id_user) || IsExists(entyty.id) ;
 
         }
 

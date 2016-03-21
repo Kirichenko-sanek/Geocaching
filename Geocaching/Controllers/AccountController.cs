@@ -55,7 +55,14 @@ namespace Geocaching.Controllers
                 entity.users = new List<UserInRoles>() {new UserInRoles() {id_roles = 2, id_user = entity.id} };
                 _manager.Update(entity);
 
-                entity.photos_of_user = new List<PhotoOfUser>() {new PhotoOfUser() {id_user = entity.id, id_photo = 1} };
+                entity.photos_of_user = new List<PhotoOfUser>()
+                {
+                    new PhotoOfUser()
+                    {
+                        id_user = entity.id,
+                        id_photo = 1,
+                        main_photo = true
+                    } };
                 _manager.Update(entity);
 
                 var url = Url.Action("ConfirmEmail", "Account", new {token = entity.id, email = entity.email},
