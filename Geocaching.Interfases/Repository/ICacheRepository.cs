@@ -16,5 +16,9 @@ namespace Geocaching.Interfases.Repository
 
         IQueryable<Cache> Search(string name, double longitude, double latityde, string country, string region,
             string city);
+
+        IQueryable<Cache> SearchCacheUser(long id, string name, double longitude, double latityde,
+            string country, string region,
+            string city);
     }
 }

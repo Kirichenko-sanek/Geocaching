@@ -23,12 +23,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="blog-archive-area">
-                    <div class="row">                       
+                    <div class="row">
                         <div class="col-md-8">
                             <div class="blog-archive-left">
                                 @Html.Partial("Cache", Model.VisitedCache)
                             </div>
-                        </div>                        
+                        </div>
+                        <div class="col-md-4">
+                            @Html.Partial("SearchVisit")
+                        </div>
                     </div>
                 </div>
             </div>

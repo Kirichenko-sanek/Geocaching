@@ -38,7 +38,7 @@ namespace Geocaching.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Registration(RegisterViewModel model, HttpPostedFileBase upload)
+        public ActionResult Registration(RegisterViewModel model)
         {
             try
             {

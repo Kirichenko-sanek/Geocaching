@@ -30,5 +30,17 @@ namespace Geocaching.Data.Repository
                         (x.name == name || x.address.longitude == longitude || x.address.latitude == latityde ||
                          x.address.country == country || x.address.region == region || x.address.city == city));
         }
+
+        public IQueryable<Cache> SearchCacheUser(long id, string name, double longitude, double latityde,
+            string country, string region,
+            string city)
+        {
+            return
+                _context.Caches.Where(
+                    x =>
+                        (x.id_user == id) &&
+                        (x.name == name || x.address.longitude == longitude || x.address.latitude == latityde ||
+                         x.address.country == country || x.address.region == region || x.address.city == city));
+        }
     }
 }

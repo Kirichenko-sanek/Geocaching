@@ -33,11 +33,11 @@ namespace Geocaching
                 m.DateOfApperance = p.date_of_apperance;
                 m.DateOfLastVisit = p.date_of_last_visit;
                 m.UserName = p.user.first_name + " " + p.user.last_name;
-                m.Longitude = p.address.longitude;
-                m.Latitude = p.address.latitude;
-                m.Country = p.address.country;
-                m.Region = p.address.region;
-                m.City = p.address.city;
+                m.Address.Longitude = p.address.longitude;
+                m.Address.Latitude = p.address.latitude;
+                m.Address.Country = p.address.country;
+                m.Address.Region = p.address.region;
+                m.Address.City = p.address.city;
             });
 
             Mapper.CreateMap<PhotoOfCaches, PhotoViewModel>().AfterMap((p, m) =>
@@ -89,12 +89,12 @@ namespace Geocaching
                 m.IdUserCache = p.id_user;
                 m.DateVisit = p.date_of_last_visit;
                 m.DateAdded = p.date_of_apperance;
-                m.UserName = p.user.first_name + " " + p.user.last_name;
-                m.Longitude = p.address.longitude;
-                m.Latitude = p.address.latitude;
-                m.Country = p.address.country;
-                m.Region = p.address.region;
-                m.City = p.address.city;
+                m.UserName = p.user.first_name + " " + p.user.last_name;           
+                m.Address.Longitude = p.address.longitude;
+                m.Address.Latitude = p.address.latitude;
+                m.Address.Country = p.address.country;
+                m.Address.Region = p.address.region;
+                m.Address.City = p.address.city;
             });
 
             Mapper.CreateMap<User, EditProfileViewModel>().AfterMap((p, m) =>
@@ -121,19 +121,12 @@ namespace Geocaching
                 m.date_of_last_visit = DateTime.Now;
                 m.address = new Address
                 {
-                    longitude = p.Longitude,
-                    latitude = p.Latitude,
-                    country = p.Country,
-                    region = p.Region,
-                    city = p.City,
+                    longitude = p.Address.Longitude,
+                    latitude = p.Address.Latitude,
+                    country = p.Address.Country,
+                    region = p.Address.Region,
+                    city = p.Address.City,
                 };               
-            });
-
-            Mapper.CreateMap<AddCacheViewModel, Address>().AfterMap((p, m) =>
-            {
-                m.country = p.Country;
-                m.region = p.Region;
-                m.city = p.City;
             });
 
             Mapper.CreateMap<PhotoOfUser, PhotoViewModel>().AfterMap((p, m) =>
@@ -142,6 +135,24 @@ namespace Geocaching
                 m.Name = p.photo.name;
                 m.Date = p.photo.date;
                 m.IDUserAdded = p.id_user;
+            });
+
+            Mapper.CreateMap<Address, AddressViewModel>().AfterMap((p, m) =>
+            {
+                m.Longitude = p.longitude;
+                m.Latitude = p.latitude;
+                m.Country = p.country;
+                m.Region = p.region;
+                m.City = p.city;
+            });
+
+            Mapper.CreateMap<AddressViewModel, Address>().AfterMap((p, m) =>
+            {
+                m.longitude = p.Longitude;
+                m.latitude = p.Latitude;
+                m.country = p.Country;
+                m.region = p.Region;
+                m.city = p.City;
             });
         }
     }

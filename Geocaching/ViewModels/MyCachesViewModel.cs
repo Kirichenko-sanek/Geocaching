@@ -2,8 +2,10 @@
 
 namespace Geocaching.ViewModels
 {
-    public class MyCachesVievModel
+    public class MyCachesViewModel
     {
         public List<CacheViewModel> MyCache { get; set; } 
+        public AddressViewModel Address { get; set; }
+        public string Name { get; set; }
     }
 }

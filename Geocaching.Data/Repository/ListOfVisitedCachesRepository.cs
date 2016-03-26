@@ -24,5 +24,18 @@ namespace Geocaching.Data.Repository
         {
             return _context.ListOfVisitedCaches.Where(x => x.id_cache == id);
         }
+
+        public IQueryable<ListOfVisitedCaches> SearchCache(long id, string name, double longitude, double latityde,
+            string country, string region,
+            string city)
+        {
+            return
+                _context.ListOfVisitedCaches.Where(
+                    x =>
+                        (x.id_user == id) &&
+                        (x.cache.name == name || x.cache.address.longitude == longitude ||
+                         x.cache.address.latitude == latityde || x.cache.address.country == country ||
+                         x.cache.address.region == region || x.cache.address.city == city));
+        }
     }
 }

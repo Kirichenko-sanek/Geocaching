@@ -30,5 +30,12 @@ namespace Geocaching.BL.Manager
         {
             return _listOfVisitedCachesRepository.GetCacheByIdCache(id);
         }
+
+        public IQueryable<ListOfVisitedCaches> SearchCache(long id, string name, double longitude, double latityde,
+            string country, string region,
+            string city)
+        {
+            return _listOfVisitedCachesRepository.SearchCache(id, name, longitude, latityde, country, region, city);
+        }
     }
 }

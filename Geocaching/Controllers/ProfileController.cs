@@ -207,17 +207,28 @@ namespace Geocaching.Controllers
                 return View(model);
             }
         }
-
+   
         [AllowAnonymous]
         public ActionResult VisitedCache(ListVisitedCachesViewModel model, long id)
         {
-            
+
             try
             {
-                if (!ModelState.IsValid) return View();
-                var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(id).OrderByDescending(x => x.date);
                 List<CacheViewModel> caches = new List<CacheViewModel>();
                 List<PhotoViewModel> photos = new List<PhotoViewModel>();
+                IQueryable<ListOfVisitedCaches> visited_caches;
+
+                if (model.Address != null || model.Name != null)
+                {
+                    visited_caches = _managerListOfVisitedCaches.SearchCache(id, model.Name,
+                        model.Address.Longitude,
+                        model.Address.Latitude, model.Address.Country,
+                        model.Address.Region, model.Address.City);
+                }
+                else
+                {
+                    visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(id).OrderByDescending(x => x.date);
+                }
 
                 foreach (var cache in visited_caches)
                 {
@@ -241,19 +252,30 @@ namespace Geocaching.Controllers
             {
                 return View();
             }
-        }
+        }        
 
         [AllowAnonymous]
-        public ActionResult MyCaches(MyCachesVievModel model, long id)
+        public ActionResult MyCaches(MyCachesViewModel model, long id)
         {
             
             try
             {
-                if (!ModelState.IsValid) return View();
-                var my_caches = _managerCache.GetCachesByIdUser(id).OrderByDescending(x => x.date_of_apperance);
                 List<CacheViewModel> caches = new List<CacheViewModel>();
                 List<PhotoViewModel> photos = new List<PhotoViewModel>();
+                IQueryable<Cache> my_caches;
 
+                if (model.Address != null || model.Name != null)
+                {
+                    my_caches = _managerCache.SearchCacheUser(id, model.Name,
+                        model.Address.Longitude,
+                        model.Address.Latitude, model.Address.Country,
+                        model.Address.Region, model.Address.City);
+                }
+                else
+                {
+                    my_caches = _managerCache.GetCachesByIdUser(id).OrderByDescending(x => x.date_of_apperance);
+                }
+ 
                 foreach (var cache in my_caches)
                 {
                     var photos_cache = _managerPhotoOfCaches.GetPhotoOfCachesByCacheId(cache.id);

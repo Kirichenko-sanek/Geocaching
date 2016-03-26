@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Geocaching.ViewModels
 {
     public class ListVisitedCachesViewModel
     {
         public List<CacheViewModel> VisitedCache { get; set; }
+        public AddressViewModel Address { get; set; }
+        public string Name { get; set; }
     }
 }

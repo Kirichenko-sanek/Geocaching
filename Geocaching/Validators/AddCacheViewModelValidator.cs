@@ -15,8 +15,8 @@ namespace Geocaching.Validators
                 .Length(1, 50)
                 .WithLocalizedMessage(() => Resource.LengthCacheName);
             RuleFor(p => p.Description).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty);
-            RuleFor(p => p.Longitude).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty);
-            RuleFor(p => p.Latitude).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty);
+            RuleFor(p => p.Address.Longitude).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty);
+            RuleFor(p => p.Address.Latitude).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty);
         }
     }
 }

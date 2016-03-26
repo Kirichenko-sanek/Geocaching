@@ -1,5 +1,5 @@
 ﻿@using Geocaching.App_GlobalResources
-@model Geocaching.ViewModels.MyCachesVievModel
+@model Geocaching.ViewModels.MyCachesViewModel
 @{
     ViewBag.Title = Resource.MyCache;
 }
@@ -28,6 +28,9 @@
                             <div class="blog-archive-left">
                                 @Html.Partial("Cache", Model.MyCache)
                             </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.Partial("SearchMyCache")
                         </div>
                     </div>
                 </div>

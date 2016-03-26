@@ -1,0 +1,28 @@
+﻿@using Geocaching.App_GlobalResources
+@model Geocaching.ViewModels.ListVisitedCachesViewModel
+
+<aside class="blog-side-bar">
+    @using (Html.BeginForm("VisitedCache", "Profile", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true, "", new { @id = "text-danger" })
+        <div class="sidebar-widget">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.CacheName, @class = "form-control" } })
+        </div>
+        <div class="sidebar-widget">
+            @Html.EditorFor(model => model.Address.Longitude, new { htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.Longitude, @class = "form-control" } })
+        </div>
+        <div class="sidebar-widget">
+            @Html.EditorFor(model => model.Address.Latitude, new { htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.Latitude, @class = "form-control" } })
+        </div>
+        <div class="sidebar-widget">
+            @Html.EditorFor(model => model.Address.Country, new { htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.Country, @class = "form-control" } })
+        </div>
+        <div class="sidebar-widget">
+            @Html.EditorFor(model => model.Address.Region, new { htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.Region, @class = "form-control" } })
+        </div>
+        <div class="sidebar-widget">
+            @Html.EditorFor(model => model.Address.City, new { htmlAttributes = new { @autocomplete = "off", @placeholder = Resource.City, @class = "form-control" } })
+        </div>
+        <input type="submit" value=@Resource.Search class="comment-btn" />
+    }
+</aside>

@@ -1,5 +1,6 @@
 ﻿@using Geocaching.App_GlobalResources
 @model Geocaching.ViewModels.UserPageViewModel
+@{ long userInSystem = Convert.ToInt64(Session["UserId"]);  }
 @{
     ViewBag.Title = Model.Name;
 }
@@ -54,38 +55,41 @@
 </div>
 
 @Html.Partial("Photos", Model.LastUserPhoto)
-
-<section id="blog-archive">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="blog-archive-area">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="comments-box-area">
-                                <h2>
-                                    @Resource.AddPhoto
-                                </h2>
-                                @using (Html.BeginForm("AddPhotoUser", "Profile", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    @Html.HiddenFor(model => Model.IdUserPage)
-                                    <input type="file" id="NewPhoto" name="upload" lang="en-US" />
-                                    <br /><p>
-                                        @Html.ValidationMessageFor(model => model.NewPhoto, "", new { @class = "control-label" })
-                                    </p>
-                                    <br /><input type="submit" value=@Resource.AddPhoto class="comment-btn" style="width: 100%" />
-                                }
+@if (HttpContext.Current.User.Identity.IsAuthenticated && Model.IdUserPage == userInSystem)
+{
+    <section id="blog-archive">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-archive-area">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="comments-box-area">
+                                    <h2>
+                                        @Resource.AddPhoto
+                                    </h2>
+                                    @using (Html.BeginForm("AddPhotoUser", "Profile", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => Model.IdUserPage)
+                                        <input type="file" id="NewPhoto" name="upload" lang="en-US"/>
+                                        <br/>
+                                        <p>
+                                            @Html.ValidationMessageFor(model => model.NewPhoto, "", new {@class = "control-label"})
+                                        </p>
+                                        <br/>
+                                        <input type="submit" value=@Resource.AddPhoto class="comment-btn" style="width: 100%"/>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
+}
 <section id="latest-news">
     <div class="container">
         <div class="row">
