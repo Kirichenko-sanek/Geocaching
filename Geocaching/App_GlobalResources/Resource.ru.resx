@@ -225,6 +225,9 @@
   <data name="MassagePass" xml:space="preserve">
     <value>На вашу почту отправлено сообщение с новым паролем.</value>
   </data>
+  <data name="Mess" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
   <data name="MyCache" xml:space="preserve">
     <value>Мои тайники</value>
   </data>

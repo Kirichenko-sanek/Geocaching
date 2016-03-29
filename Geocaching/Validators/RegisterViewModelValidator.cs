@@ -1,15 +1,17 @@
 ﻿using FluentValidation;
 using Geocaching.App_GlobalResources;
+using Geocaching.Filters;
 using Geocaching.ViewModels;
 
 namespace Geocaching.Validators
 {
+    
     class RegisterViewModelValidator : AbstractValidator<RegisterViewModel>
     {
         public RegisterViewModelValidator()
         {
-            RuleFor(p => p.FirstName).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty)
-                .Length(1, 20).WithLocalizedMessage(() => Resource.Length);
+            RuleFor(p => p.FirstName).NotEmpty().WithMessage(Resource.FieldCannotBeEmpty)
+                .Length(1, 20).WithMessage(Resource.Length);
             RuleFor(p => p.LastName).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty)
                 .Length(1, 20).WithLocalizedMessage(() => Resource.Length);
             RuleFor(p => p.Email).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty)

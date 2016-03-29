@@ -192,6 +192,7 @@
     <Compile Include="Validators\CommentsViewModelValidator.cs" />
     <Compile Include="Validators\EditPassViewModelValidator.cs" />
     <Compile Include="Validators\EditProfileViewModelValidator.cs" />
+    <Compile Include="Validators\MessageForUserViewModelValidator.cs" />
     <Compile Include="ViewModels\AddCacheViewModel.cs" />
     <Compile Include="ViewModels\AddressViewModel.cs" />
     <Compile Include="ViewModels\CachePageViewModel.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="ViewModels\EditPassViewModel.cs" />
     <Compile Include="ViewModels\EditProfileViewModel.cs" />
     <Compile Include="ViewModels\ListVisitedCachesViewModel.cs" />
+    <Compile Include="ViewModels\MessageForUserViewModel.cs" />
     <Compile Include="ViewModels\MyCachesViewModel.cs" />
     <Compile Include="ViewModels\CacheViewModel.cs" />
     <Compile Include="ViewModels\LogInViewModel.cs" />
@@ -298,6 +300,7 @@
     <Content Include="Views\Shared\SearchList.cshtml" />
     <Content Include="Views\Shared\SearchVisit.cshtml" />
     <Content Include="Views\Shared\SearchMyCache.cshtml" />
+    <Content Include="Views\Shared\Message.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

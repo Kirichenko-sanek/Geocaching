@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Configuration;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -169,6 +170,12 @@ namespace Geocaching.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult SendMessage(MessageForUserViewModel model)
+        {
+            _manager.SendMessageForUser(model.EmailUser, model.Message);
+            return RedirectToAction("Index", "Home");
+        }
         
 
     }

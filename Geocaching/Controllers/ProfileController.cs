@@ -36,7 +36,7 @@ namespace Geocaching.Controllers
             _managerPhoto = managerPhoto;
         }
 
-        [AllowAnonymous]
+        
         public ActionResult UserPage(long? id)
         {
             if (id != null) return UserPage(new UserPageViewModel(), id);
@@ -46,19 +46,26 @@ namespace Geocaching.Controllers
         }
         
         [HttpPost]
-        [AllowAnonymous]
         public ActionResult UserPage(UserPageViewModel model, long? id)
-        {            
+        {
             try
             {
                 if (!ModelState.IsValid) return View();
-                var user = _managerUser.GetById((long)id);
+                var user = _managerUser.GetById((long) id);
                 var photo_user = _managerPhotoOfUser.GetPhotoUserByUserId(user.id);
-                model = Mapper.Map<User, UserPageViewModel>(user);
-                model.Photo = photo_user.photo.name;
-                int count = 0;
+                if (photo_user.photo == null)
+                {
+                    model = Mapper.Map<User, UserPageViewModel>(user);
+                    model.Photo = "/Images/Account/images.jpg";
+                }
+                else
+                {
+                    model = Mapper.Map<User, UserPageViewModel>(user);
+                    model.Photo = photo_user.photo.name;
+                }
 
-                
+                model.IdUserPage = user.id;
+                int count = 0;
                 List<CacheViewModel> caches = new List<CacheViewModel>();
                 List<CacheViewModel> caches_my = new List<CacheViewModel>();
                 List<PhotoViewModel> photos = new List<PhotoViewModel>();
@@ -67,13 +74,14 @@ namespace Geocaching.Controllers
                 var photos_added_user = _managerPhotoOfUser.GetPhotoUser(user.id).OrderByDescending(x => x.photo.date);
                 foreach (var photo in photos_added_user)
                 {
-                    photos_user.Add(Mapper.Map<PhotoOfUser,PhotoViewModel>(photo));
+                    photos_user.Add(Mapper.Map<PhotoOfUser, PhotoViewModel>(photo));
                     if (count == 3) break;
                     count++;
                 }
                 model.LastUserPhoto = photos_user;
 
-                var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(user.id).OrderByDescending(x => x.date);
+                var visited_caches = _managerListOfVisitedCaches.GetCacheByIdUser(user.id)
+                    .OrderByDescending(x => x.date);
                 count = 0;
                 foreach (var cache in visited_caches)
                 {
@@ -89,7 +97,7 @@ namespace Geocaching.Controllers
                     a.Photo = photos[0].Name;
 
                     caches.Add(a);
-                    
+
 
                     if (count == 2) break;
                     count++;
@@ -114,7 +122,7 @@ namespace Geocaching.Controllers
 
                     caches_my.Add(a);
 
-                    
+
                     if (count == 2) break;
                     count++;
                 }

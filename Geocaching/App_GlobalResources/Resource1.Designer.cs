@@ -385,6 +385,15 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Messege.
+        /// </summary>
+        public static string Mess {
+            get {
+                return ResourceManager.GetString("Mess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My caches.
         /// </summary>
         public static string MyCache {

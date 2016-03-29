@@ -24,7 +24,7 @@ namespace Geocaching.BL.Manager
 
         public void SentConfirmMail(T entity, string url)
         {
-            MailAddress from = new MailAddress("socialnetwork.mail.service@gmail.com", "Web Registration");
+            MailAddress from = new MailAddress("Geocaching.Service.diploma@gmail.com", "Geocaching");
             // кому отправляем
             MailAddress to = new MailAddress(entity.email);
             // создаем объект сообщения
@@ -38,25 +38,38 @@ namespace Geocaching.BL.Manager
             // адрес smtp-сервера, с которого мы и будем отправлять письмо
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             // логин и пароль
-            smtp.Credentials = new NetworkCredential("socialnetwork.mail.service@gmail.com", "123456789poiuytrewq");
+            smtp.Credentials = new NetworkCredential("Geocaching.Service.diploma@gmail.com", "123456789poiuytrewq");
             smtp.EnableSsl = true;
             smtp.Send(m);
         }
 
         public void SendPassRecovery(T entity, string newPassword)
         {
-            MailAddress from = new MailAddress("socialnetwork.mail.service@gmail.com", "Web Registration");
+            MailAddress from = new MailAddress("Geocaching.Service.diploma@gmail.com", "Geocaching");
             MailAddress to = new MailAddress(entity.email);
             MailMessage m = new MailMessage(from, to);
             m.Subject = "Password Recovery";
             m.Body = string.Format("Ваш пароль востановлен" + "Ваш новый пароль: " + "{0}", newPassword);
             m.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("socialnetwork.mail.service@gmail.com", "123456789poiuytrewq");
+            smtp.Credentials = new NetworkCredential("Geocaching.Service.diploma@gmail.com", "123456789poiuytrewq");
             smtp.EnableSsl = true;
             smtp.Send(m);
         }
 
+        public void SendMessageForUser(string email, string message)
+        {
+            MailAddress from = new MailAddress("Geocaching.Service.diploma@gmail.com", "Geocaching");
+            MailAddress to = new MailAddress(email);
+            MailMessage m = new MailMessage(from, to);
+            m.Subject = "Message from Geocaching";
+            m.Body = string.Format(message);
+            m.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("Geocaching.Service.diploma@gmail.com", "123456789poiuytrewq");
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+        }
 
         public void ActivateUser(T entity)
         {

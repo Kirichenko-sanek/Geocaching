@@ -1,5 +1,6 @@
 ﻿@using Geocaching.App_GlobalResources
 @model Geocaching.ViewModels.CachePageViewModel
+@{ long userInSystem = Convert.ToInt64(Session["UserId"]);  }
 @{
     ViewBag.Title = Model.Name;
 }
@@ -33,7 +34,12 @@
                                     <div class="blog-news-title">
                                         <p>
                                             @Html.ActionLink(@Model.UserName, "UserPage", "Profile", new {id = Model.IdUserCache}, null)
-                                            @Html.ActionLink(@Resource.Delete,"DeleteCache","Cache", new { idCache = Model.IdCache }, null)
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            @if (HttpContext.Current.User.Identity.IsAuthenticated && Model.IdUserCache == userInSystem )
+                                            {
+
+                                                @Html.ActionLink(@Resource.Delete, "DeleteCache", "Cache", new {idCache = Model.IdCache}, null)
+                                            }
                                         </p>
                                         <p>
                                             <span class="blog-date" style="color: #000">@Resource.DateAdded : @Model.DateOfApperance</span>

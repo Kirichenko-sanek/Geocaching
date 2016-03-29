@@ -1,0 +1,40 @@
+﻿@using Geocaching.App_GlobalResources
+@model Geocaching.ViewModels.MessageForUserViewModel
+
+@using (Html.BeginForm("SendMessage", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.EmailUser, new { htmlAttributes = new { @placeholder = Resource.Email, @class = "form-control" } })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="form-group">
+                            @Html.TextAreaFor(model => model.Message, new {@style = "width: 100%", @placeholder = Resource.Mess, @rows = "3", @class = "form-control"})
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="title-area">
+                            <input style="width: 100%" type="submit" value=@Resource.Send class="comment-btn" />
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div> 
+    </section>
+}

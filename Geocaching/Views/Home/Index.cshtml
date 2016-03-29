@@ -2,6 +2,8 @@
     ViewBag.Title = "Home Page";
 }
 
+@{ long userInSystem = Convert.ToInt64(Session["UserId"]); }
+
 <section id="slider">
     <div class="main-slider">
         <div class="single-slide">
@@ -25,3 +27,8 @@
         </div>
     </div>
 </section>
+
+@if (HttpContext.Current.User.Identity.IsAuthenticated && userInSystem == 1)
+{
+    @Html.Partial("Message")
+}

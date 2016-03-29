@@ -28,14 +28,16 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        Hello
-                    </div>
-                    <div>
-                        @Html.ActionLink("Hello", "CachePage", "Cache", new {id = 1}, null)
-                        @Html.ActionLink("Hello222", "VisitedCache", new {id = Model.IdUserPage}, null)
-                        @Html.ActionLink(@Resource.EditProfile, "EditProfile", new {id = Model.IdUserPage}, null)
-                        @Html.ActionLink(@Resource.EditPassword, "EditPass", new {id = Model.IdUserPage}, null)
-                    </div>
+                      @if (HttpContext.Current.User.Identity.IsAuthenticated && Model.IdUserPage == userInSystem)
+                      {
+                          <div>
+                              @Html.ActionLink(@Resource.EditProfile, "EditProfile", new {id = Model.IdUserPage}, new {@style = "font-size: 20px; color: #fff"})
+                          </div>
+                          <div>
+                              @Html.ActionLink(@Resource.EditPassword, "EditPass", new {id = Model.IdUserPage}, new {@style = "font-size: 20px; color: #fff"})
+                          </div>
+                      }
+                    </div>                  
                 </div>
             </div>
         </div>
@@ -53,8 +55,10 @@
         }
        </div>
 </div>
-
-@Html.Partial("Photos", Model.LastUserPhoto)
+@if (Model.LastUserPhoto.Count > 0)
+{
+    @Html.Partial("Photos", Model.LastUserPhoto)
+}
 @if (HttpContext.Current.User.Identity.IsAuthenticated && Model.IdUserPage == userInSystem)
 {
     <section id="blog-archive">

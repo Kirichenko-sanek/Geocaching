@@ -21,7 +21,7 @@ namespace Geocaching.BL.Validators
         public bool IsValid(ListOfVisitedCaches entyty)
         {
             return IsExists(entyty.id_user)
-                && IsExists(entyty.id_cache);
+                || IsExists(entyty.id_cache);
         }
 
         public bool IsExists(long id)

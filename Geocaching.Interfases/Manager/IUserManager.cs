@@ -7,6 +7,7 @@ namespace Geocaching.Interfases.Manager
         User GetUserByEmail(string email);
         void SentConfirmMail(T entity, string url);
         void SendPassRecovery(T entity, string newPassword);
+        void SendMessageForUser(string email, string message);
         void ActivateUser(T enity);
     }
 }
