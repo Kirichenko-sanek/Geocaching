@@ -6,57 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Geocaching</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-    
-
-
+    @Scripts.Render("~/bundles/modernizr")  
 </head>
 <body>
-
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    <header id="header">
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="header-contact">
+                            <ul>
+                                <li>
+                                    @Html.ActionLink("English", "ChangeCulture", "Home", new {lang = "en"}, null)
 
-<header id="header">
-    <div class="header-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                    <div class="header-contact">
-                        <ul>
-                            <li>
-                                @Html.ActionLink("English", "ChangeCulture", "Home", new {lang = "en"}, null)
-
-                            </li>
-                            <li>
-                                @Html.ActionLink("Русский", "ChangeCulture", "Home", new {lang = "ru"}, null)
-                            </li>
-                        </ul>
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Русский", "ChangeCulture", "Home", new {lang = "ru"}, null)
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                    <div class="header-login">
-                        @if (!HttpContext.Current.User.Identity.IsAuthenticated)
-                        {
-                            <a class="login" href="/Account/LogIn">
-                                @Resource.LogIn
-                            </a>
-                            <a class="login" href="/Account/Registration">
-                                @Resource.Registration
-                            </a>
-                        }
-                        else
-                        {
-                            <a class="login" href="/Account/LogOff">
-                                @Resource.LogOff
-                            </a>
-                        }
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="header-login">
+                            @if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
+                                <a class="login" href="/Account/LogIn">
+                                    @Resource.LogIn
+                                </a>
+                                <a class="login" href="/Account/Registration">
+                                    @Resource.Registration
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="login" href="/Account/LogOff">
+                                    @Resource.LogOff
+                                </a>
+                            }
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
     
     <section id="menu-area">
         <nav class="navbar navbar-default" role="navigation">

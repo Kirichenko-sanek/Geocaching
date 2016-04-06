@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using FluentValidation;
+﻿using FluentValidation;
 using Geocaching.App_GlobalResources;
+using Geocaching.Filters;
 using Geocaching.ViewModels;
 
 namespace Geocaching.Validators
 {
+    [Culture]
     class CommentsViewModelValidator : AbstractValidator<CommentsViewModel>
     {
         public CommentsViewModelValidator()
         {
-            RuleFor(p => p.Description).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty);
+            RuleFor(p => p.Description).NotEmpty().WithMessage(Resource.FieldCannotBeEmpty);
         }
     }
 }

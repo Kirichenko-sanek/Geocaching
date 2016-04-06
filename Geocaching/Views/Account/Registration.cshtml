@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="row">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="row">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="row">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @Html.ValidationMessageFor(model => model.Password, "", new {@class = "control-label"})
+                            @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger" })
                         </div>
                     </div>
                     <div class="row">
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <input type="submit" value=@Resource.Register class="comment-btn" />
