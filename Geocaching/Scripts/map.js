@@ -1,4 +1,4 @@
-﻿function Initialize(e) {
+﻿jQuery(function ($) {
     var latitude = $('#geoMap').data('latitude');
     var longitude = $('#geoMap').data('longitude');
     var latlng = new google.maps.LatLng(latitude, longitude);
@@ -14,10 +14,6 @@
         position: new google.maps.LatLng(latitude, longitude),
         map: map
     });
-}
-
-$(function () {
-    Initialize();
 });
 
 

@@ -17,7 +17,7 @@
                                     <img src="@Url.Content(Model.Photo)" alt="testimonial image"/>
                                 </div>
                                 <div class="testimonial-content">
-                                    <h3>@Model.Name</h3>
+                                    <h3 style="color: #000">@Model.Name</h3>
                                 </div>
 
                             </div>
@@ -31,10 +31,10 @@
                       @if (HttpContext.Current.User.Identity.IsAuthenticated && Model.IdUserPage == userInSystem)
                       {
                           <div>
-                              @Html.ActionLink(@Resource.EditProfile, "EditProfile", new {id = Model.IdUserPage}, new {@style = "font-size: 20px; color: #fff"})
+                              @Html.ActionLink(@Resource.EditProfile, "EditProfile", new {id = Model.IdUserPage}, new {@style = "font-size: 20px; color: #000"})
                           </div>
                           <div>
-                              @Html.ActionLink(@Resource.EditPassword, "EditPass", new {id = Model.IdUserPage}, new {@style = "font-size: 20px; color: #fff"})
+                              @Html.ActionLink(@Resource.EditPassword, "EditPass", new {id = Model.IdUserPage}, new {@style = "font-size: 20px; color: #000"})
                           </div>
                       }
                     </div>                  
@@ -53,8 +53,9 @@
             <br/>@Html.ActionLink(Resource.ViewAll, "MyPhotos", "Profile", new {id = Model.IdUserPage}, null)
 
         }
-       </div>
+    </div>
 </div>
+<div id="geoMap"></div>
 @if (Model.LastUserPhoto.Count > 0)
 {
     @Html.Partial("Photos", Model.LastUserPhoto)
