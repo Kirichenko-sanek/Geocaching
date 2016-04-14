@@ -1,5 +1,4 @@
 ﻿using System;
-using Geocaching.Core;
 
 namespace Geocaching.ViewModels
 {

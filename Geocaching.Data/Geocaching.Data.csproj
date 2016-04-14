@@ -61,16 +61,13 @@
     <Compile Include="Mapping\UserInRolesMap.cs" />
     <Compile Include="Mapping\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\AddressRepository.cs" />
     <Compile Include="Repository\CacheRepository.cs" />
     <Compile Include="Repository\CommentRepository.cs" />
     <Compile Include="Repository\ListOfVisitedCachesRepository.cs" />
     <Compile Include="Repository\PhotoOfCachesRepository.cs" />
     <Compile Include="Repository\PhotoOfUserRepository.cs" />
-    <Compile Include="Repository\PhotoRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\RolesRepository.cs" />
-    <Compile Include="Repository\UserInRolesRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

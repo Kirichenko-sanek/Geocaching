@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using FluentValidation.Attributes;
-using Geocaching.Validators;
 
 namespace Geocaching.ViewModels
 {

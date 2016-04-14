@@ -5,17 +5,18 @@ using Geocaching.ViewModels;
 
 namespace Geocaching.Validators
 {
+
     [Culture]
     public class EditProfileViewModelValidator : AbstractValidator<EditProfileViewModel>
     {
         public EditProfileViewModelValidator()
         {
-            RuleFor(p => p.FirstName).NotEmpty().WithLocalizedMessage(() => Resource.FieldCannotBeEmpty)
+            RuleFor(p => p.FirstName).NotEmpty().WithMessage(Resource.FieldCannotBeEmpty)
                .Length(1, 20).WithMessage(Resource.Length);
             RuleFor(p => p.LastName).NotEmpty().WithMessage(Resource.FieldCannotBeEmpty)
-                .Length(1, 20).WithLocalizedMessage(() => Resource.Length);
+                .Length(1, 20).WithMessage(Resource.Length);
             RuleFor(p => p.Email).NotEmpty().WithMessage(Resource.FieldCannotBeEmpty)
-                .EmailAddress().WithLocalizedMessage(() => Resource.WrongFormatEmail);
+                .EmailAddress().WithMessage(Resource.WrongFormatEmail);
         }
     }
 }

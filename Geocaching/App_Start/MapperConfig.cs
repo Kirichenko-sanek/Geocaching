@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using AutoMapper;
 using Geocaching.Core;
 using Geocaching.ViewModels;

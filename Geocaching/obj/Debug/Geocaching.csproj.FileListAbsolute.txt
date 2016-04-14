@@ -47,6 +47,11 @@ C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\M
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\Newtonsoft.Json.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.Client.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.Common.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.Interfaces.dll
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.Text.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\System.Net.Http.Formatting.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\System.Web.Helpers.dll
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\System.Web.Http.dll
@@ -77,6 +82,10 @@ C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\F
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\Newtonsoft.Json.xml
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.xml
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.Client.xml
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.Common.xml
+C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\ServiceStack.Text.xml
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\System.Net.Http.Formatting.xml
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\System.Web.Http.xml
 C:\Users\kiric\Documents\Visual Studio 2015\Projects\Geocaching\Geocaching\bin\System.Web.Http.WebHost.xml

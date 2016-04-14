@@ -53,21 +53,17 @@
     <Compile Include="Manager\ICommentsManager.cs" />
     <Compile Include="Manager\IListOfVisitedCachesManager.cs" />
     <Compile Include="Manager\IManager.cs" />
-    <Compile Include="Manager\IPhotoManager.cs" />
     <Compile Include="Manager\IPhotoOfCachesManager.cs" />
     <Compile Include="Manager\IPhotoOfUserManager.cs" />
     <Compile Include="Manager\IUserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IAddressRepository.cs" />
     <Compile Include="Repository\ICacheRepository.cs" />
     <Compile Include="Repository\ICommentRepository.cs" />
     <Compile Include="Repository\IListOfVisitedCachesRepository.cs" />
     <Compile Include="Repository\IPhotoOfCachesRepository.cs" />
     <Compile Include="Repository\IPhotoOfUserRepository.cs" />
-    <Compile Include="Repository\IPhotoRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\IRolesRepository.cs" />
-    <Compile Include="Repository\IUserInRolesRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Validator\IValidator.cs" />
   </ItemGroup>

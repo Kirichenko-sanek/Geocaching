@@ -68,12 +68,17 @@ namespace Geocaching.Controllers
            
         }
 
+        [HttpPost]
         [AllowAnonymous]
         public ActionResult AddComment(CachePageViewModel model)
         {
-                var entity = Mapper.Map<CachePageViewModel, Comment>(model);
-                _managerComments.Add(entity);
+            if (model.NewComment == null)
+            {
                 return RedirectToAction("CachePage", new { id = model.IdCache });
+            }
+            var entity = Mapper.Map<CachePageViewModel, Comment>(model);
+            _managerComments.Add(entity);
+            return RedirectToAction("CachePage", new {id = model.IdCache});
         }
 
         [HttpPost]
@@ -137,9 +142,12 @@ namespace Geocaching.Controllers
             }
         }
 
+        [HttpPost]
         [AllowAnonymous]
         public ActionResult AddPhotoCache(CachePageViewModel model, HttpPostedFileBase upload)
-        {         
+        {
+            try
+            {
                 var pic = new AddPhotos();
                 var patPic = pic.AddImage(upload, Server.MapPath("/Images/Cache/"), "/Images/Cache/");
                 var entity = new PhotoOfCaches()
@@ -152,7 +160,13 @@ namespace Geocaching.Controllers
                     }
                 };
                 _managerPhotoOfCaches.Add(entity);
-                return RedirectToAction("CachePage", new { id = model.IdCache });                   
+                return RedirectToAction("CachePage", new { id = model.IdCache });
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("CachePage", new { id = model.IdCache });
+            }   
+                                   
         }
 
         

@@ -21,19 +21,16 @@ namespace Geocaching.Controllers
         private readonly IListOfVisitedCachesManager<ListOfVisitedCaches> _managerListOfVisitedCaches;
         private readonly ICacheManager<Cache> _managerCache;
         private readonly IPhotoOfCachesManager<PhotoOfCaches> _managerPhotoOfCaches;
-        private readonly IPhotoManager<Photo> _managerPhoto;
 
         public ProfileController(IUserManager<User> managerUser, IPhotoOfUserManager<PhotoOfUser> managerPhotoOfUser,
             IListOfVisitedCachesManager<ListOfVisitedCaches> managerListOfVisitedCaches,
-            ICacheManager<Cache> managerCache, IPhotoOfCachesManager<PhotoOfCaches> managerPhotoOfCaches,
-            IPhotoManager<Photo> managerPhoto)
+            ICacheManager<Cache> managerCache, IPhotoOfCachesManager<PhotoOfCaches> managerPhotoOfCaches)
         {
             _managerUser = managerUser;
             _managerPhotoOfUser = managerPhotoOfUser;
             _managerListOfVisitedCaches = managerListOfVisitedCaches;
             _managerCache = managerCache;
             _managerPhotoOfCaches = managerPhotoOfCaches;
-            _managerPhoto = managerPhoto;
         }
 
         
@@ -331,6 +328,7 @@ namespace Geocaching.Controllers
             }
         }
 
+        [HttpPost]
         [AllowAnonymous]
         public ActionResult AddPhotoUser(UserPageViewModel model, HttpPostedFileBase upload)
         {

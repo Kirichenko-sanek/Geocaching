@@ -55,7 +55,6 @@
     <Compile Include="Manager\CommentsManager.cs" />
     <Compile Include="Manager\ListOfVisitedCachesManager.cs" />
     <Compile Include="Manager\Manager.cs" />
-    <Compile Include="Manager\PhotoManager.cs" />
     <Compile Include="Manager\PhotoOfCachesManager.cs" />
     <Compile Include="Manager\PhotoOfUserManager.cs" />
     <Compile Include="Manager\UserManager.cs" />

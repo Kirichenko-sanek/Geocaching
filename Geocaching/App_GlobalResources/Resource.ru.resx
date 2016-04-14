@@ -151,7 +151,7 @@
     <value>Дата последнего посещения</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Удвлить</value>
+    <value>Удалить</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Описание</value>
