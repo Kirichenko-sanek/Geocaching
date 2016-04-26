@@ -141,6 +141,9 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+  <data name="ConfirmRecoveryProfile" xml:space="preserve">
+    <value>Congratulations, you have successfully restored their profile</value>
+  </data>
   <data name="Country" xml:space="preserve">
     <value>Country</value>
   </data>
@@ -152,6 +155,12 @@
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Your profile has been deleted</value>
+  </data>
+  <data name="DeleteProfile" xml:space="preserve">
+    <value>Delete your profile?</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
@@ -173,6 +182,9 @@
   </data>
   <data name="EmailNotRegistered" xml:space="preserve">
     <value>This email is not registered</value>
+  </data>
+  <data name="EndRecoveryProfile" xml:space="preserve">
+    <value>End of recovery profile</value>
   </data>
   <data name="EndRegistration" xml:space="preserve">
     <value>End of registration</value>
@@ -258,8 +270,17 @@
   <data name="PasswordSuccessfullyRecovered" xml:space="preserve">
     <value>Password successfully recovered</value>
   </data>
+  <data name="ProfileDeleted" xml:space="preserve">
+    <value>User deleted their page</value>
+  </data>
   <data name="Recovery" xml:space="preserve">
     <value>Password recovery</value>
+  </data>
+  <data name="RecoveryProfile" xml:space="preserve">
+    <value>Profile recovery</value>
+  </data>
+  <data name="RecoveryProfileCompleted" xml:space="preserve">
+    <value>Recovery profile is comleted</value>
   </data>
   <data name="RegCompleted" xml:space="preserve">
     <value>Registration is completed</value>

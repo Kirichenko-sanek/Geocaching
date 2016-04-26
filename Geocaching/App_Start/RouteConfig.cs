@@ -34,6 +34,12 @@ namespace Geocaching
                 );
 
             routes.MapRoute(
+                name: "EndRecoveryProfile",
+                url: "Account/EndRecoveryProfile",
+                defaults: new { controller = "Account", action = "EndRecoveryProfile" }
+                );
+
+            routes.MapRoute(
                 name: "UserPage",
                 url: "Profile/UserPage/{id}",
                 defaults: new {controller = "Profile", action = "UserPage", id = UrlParameter.Optional}

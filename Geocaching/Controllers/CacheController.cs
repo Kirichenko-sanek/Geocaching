@@ -249,5 +249,13 @@ namespace Geocaching.Controllers
             _managerCache.Delete(cache);
             return RedirectToAction("Index", "Home");
         }
+
+        [AllowAnonymous]
+        public ActionResult DeleteComment(long id)
+        {
+            var comment = _managerComments.GetById(id);
+            _managerComments.Delete(comment);
+            return RedirectToRoute("CachePage", new { id = comment.id_cache });
+        }
     }
 }

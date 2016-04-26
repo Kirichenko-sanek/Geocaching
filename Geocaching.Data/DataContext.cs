@@ -42,7 +42,7 @@ namespace Geocaching.Data
 
         }
 
-        private class GeocachingInitializer : CreateDatabaseIfNotExists<DataContext>
+        private class GeocachingInitializer : DropCreateDatabaseAlways<DataContext>
         {
             protected override void Seed(DataContext context)
             {
@@ -73,6 +73,7 @@ namespace Geocaching.Data
                         password = pass,           
                         password_salt = salt,
                         is_activated = true,
+                        is_deleted = false,
                         users = new List<UserInRoles>() {new UserInRoles() {id_roles = 1, id_user = 1}}
                     },
                     new User()
@@ -83,6 +84,7 @@ namespace Geocaching.Data
                         password = pass,
                         password_salt = salt,
                         is_activated = true,
+                        is_deleted = false,
                         users = new List<UserInRoles>() {new UserInRoles() {id_roles = 2, id_user = 1}}
                     }
                 };

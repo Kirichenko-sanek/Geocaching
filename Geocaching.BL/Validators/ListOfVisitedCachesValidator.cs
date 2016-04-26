@@ -13,10 +13,10 @@ namespace Geocaching.BL.Validators
             _listOfVsitedCacheRepository = listOfVsitedCacheRepository;
         }
 
-        public bool IsValid(ListOfVisitedCaches entyty)
+        public bool IsValid(ListOfVisitedCaches entity)
         {
-            return IsExists(entyty.id_user)
-                || IsExists(entyty.id_cache);
+            return IsExists(entity.id_user)
+                || IsExists(entity.id_cache);
         }
 
         public bool IsExists(long id)

@@ -77,5 +77,19 @@ namespace Geocaching.BL.Manager
             _userRepository.Update(entity);
             _userRepository.Save();
         }
+
+        public void DeleteUser(T entity)
+        {
+            entity.is_deleted = true;
+            _userRepository.Update(entity);
+            _userRepository.Save();
+        }
+
+        public void RecoveryUser(T entity)
+        {
+            entity.is_deleted = false;
+            _userRepository.Update(entity);
+            _userRepository.Save();
+        }
     }
 }

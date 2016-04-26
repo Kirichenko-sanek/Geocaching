@@ -76,10 +76,7 @@ namespace Geocaching.Controllers
             {
                 model.Error = e.Message;
                 return View(model);
-            }
-
-            
-
+            }         
         }
 
         [HttpGet]
@@ -111,10 +108,15 @@ namespace Geocaching.Controllers
             try
             {
                 var user = _manager.GetUserByEmail(model.EmailLogin);
-                if(user == null) throw new Exception(Resource.EmailNotRegistered);
+                if(user == null)
+                    throw new Exception(Resource.EmailNotRegistered);
                 var passLogin = PasswordHashing.HashPassword(model.PasswordLogin, user.password_salt);
-                if (user.password != passLogin) throw new Exception(Resource.WrongPassword);
-                if (!user.is_activated) throw new Exception(Resource.NotActivated);
+                if (user.password != passLogin)
+                    throw new Exception(Resource.WrongPassword);
+                if (!user.is_activated)
+                    throw new Exception(Resource.NotActivated);
+                if (user.is_deleted)
+                    throw new Exception(Resource.Deleted);
                 FormsAuthentication.SetAuthCookie(user.email,false);
                 return RedirectToAction("UserPage", "Profile", user.id);
             }
@@ -139,7 +141,7 @@ namespace Geocaching.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult PassRecovery(PassRecoveryViewModel model)
+        public ActionResult PassRecovery(RecoveryViewModel model)
         {
             try
             {
@@ -178,7 +180,49 @@ namespace Geocaching.Controllers
             _manager.SendMessageForUser(model.EmailUser, model.Message);
             return RedirectToAction("Index", "Home");
         }
-        
 
+       
+        [AllowAnonymous]
+        public ActionResult RecoveryProfile()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult RecoveryProfile(RecoveryViewModel model)
+        {
+            var user = _manager.GetUserByEmail(model.Email);
+            if (user == null) throw new Exception(Resource.EmailNotRegistered);
+            var url = Url.Action("ConfirmRecoveryProfile", "Account", new { token = user.id, email = user.email },
+                    Request.Url.Scheme);
+            _manager.SentConfirmMail(user, url);
+            return RedirectToRoute("EndRecoveryProfile");
+        }
+
+        [AllowAnonymous]
+        public ActionResult EndRecoveryProfile()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ConfirmRecoveryProfile(long token, string email)
+        {
+            try
+            {
+                var user = _manager.GetById(token);
+                _manager.RecoveryUser(user);
+                return View();
+            }
+            catch
+            {
+                return RedirectToRoute("Default");
+            }
+        }
+
+        
     }
 }

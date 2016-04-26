@@ -5,8 +5,8 @@ using Geocaching.Validators;
 namespace Geocaching.ViewModels
 {
     [Culture]
-    [Validator(typeof(PassRecoveryViewModelValidator))]
-    public class PassRecoveryViewModel
+    [Validator(typeof(RecoveryViewModelValidator))]
+    public class RecoveryViewModel
     {
         public string Email { get; set; }
         public string Error { get; set; }

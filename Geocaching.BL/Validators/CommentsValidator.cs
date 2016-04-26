@@ -15,8 +15,7 @@ namespace Geocaching.BL.Validators
 
         public bool IsValid(Comment entity)
         {
-            return IsExists(entity.id_user) || IsExists(entity.id_cache)
-                   || IsExists(entity.id);
+            return IsExists(entity.id_user) || IsExists(entity.id) || IsExists(entity.id_cache);
         }
 
         public bool IsExists(long id)

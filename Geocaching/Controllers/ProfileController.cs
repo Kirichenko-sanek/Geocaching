@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using AutoMapper;
 using Geocaching.App_GlobalResources;
 using Geocaching.BL;
@@ -38,6 +39,7 @@ namespace Geocaching.Controllers
         {
             if (id != null) return UserPage(new UserPageViewModel(), id);
             var user = _managerUser.GetUserByEmail(User.Identity.Name);
+            if (user.is_deleted) return RedirectToAction("ProfileDeleted", "Profile");
             Session["UserId"] = user.id;
             return UserPage(new UserPageViewModel(), user.id);           
         }
@@ -49,6 +51,7 @@ namespace Geocaching.Controllers
             {
                 if (!ModelState.IsValid) return View();
                 var user = _managerUser.GetById((long) id);
+                if (user.is_deleted) return RedirectToAction("ProfileDeleted", "Profile");
                 var photo_user = _managerPhotoOfUser.GetPhotoUserByUserId(user.id);
                 if (photo_user.photo == null)
                 {
@@ -379,6 +382,21 @@ namespace Geocaching.Controllers
             {
                 return RedirectToAction("Index","Home");
             }
+        }
+
+        [AllowAnonymous]
+        public ActionResult DeleteUser(long id)
+        {
+            var user = _managerUser.GetById(id);
+            _managerUser.DeleteUser(user);
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        public ActionResult ProfileDeleted()
+        {
+            return View();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Geocaching.Core
         public string password { get; set; }
         public string password_salt { get; set; }
         public bool is_activated { get; set; }
+        public bool is_deleted { get; set; }
 
         public virtual List<UserInRoles> users { get; set; }
         public virtual List<Cache> caches { get; set; }

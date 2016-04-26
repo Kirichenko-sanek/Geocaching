@@ -1,7 +1,7 @@
 ﻿@using Geocaching.App_GlobalResources
 @model Geocaching.ViewModels.RecoveryViewModel
 @{
-    ViewBag.Title = @Resource.Recovery;
+    ViewBag.Title = @Resource.RecoveryProfile;
 }
 
 <section id="single-page-header">
@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="single-page-header-left">
-                        <h2>@Resource.Recovery</h2>
+                        <h2>@Resource.RecoveryProfile</h2>
                         <p>
                             @Html.DisplayTextFor(model => model.Error)
                         </p>
@@ -23,7 +23,7 @@
 </section>
 
 
-@using (Html.BeginForm("PassRecovery", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("RecoveryProfile", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <section id="contact">
@@ -47,7 +47,7 @@
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    
+
                     <input type="submit" value=@Resource.Send class="comment-btn" />
                 </div>
             </div>

@@ -133,6 +133,15 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Congratulations, you have successfully restored their profile.
+        /// </summary>
+        public static string ConfirmRecoveryProfile {
+            get {
+                return ResourceManager.GetString("ConfirmRecoveryProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Country.
         /// </summary>
         public static string Country {
@@ -165,6 +174,24 @@ namespace Geocaching.App_GlobalResources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your profile has been deleted.
+        /// </summary>
+        public static string Deleted {
+            get {
+                return ResourceManager.GetString("Deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete your profile?.
+        /// </summary>
+        public static string DeleteProfile {
+            get {
+                return ResourceManager.GetString("DeleteProfile", resourceCulture);
             }
         }
         
@@ -228,6 +255,15 @@ namespace Geocaching.App_GlobalResources {
         public static string EmailNotRegistered {
             get {
                 return ResourceManager.GetString("EmailNotRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End of recovery profile.
+        /// </summary>
+        public static string EndRecoveryProfile {
+            get {
+                return ResourceManager.GetString("EndRecoveryProfile", resourceCulture);
             }
         }
         
@@ -484,11 +520,38 @@ namespace Geocaching.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User deleted their page.
+        /// </summary>
+        public static string ProfileDeleted {
+            get {
+                return ResourceManager.GetString("ProfileDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password recovery.
         /// </summary>
         public static string Recovery {
             get {
                 return ResourceManager.GetString("Recovery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile recovery.
+        /// </summary>
+        public static string RecoveryProfile {
+            get {
+                return ResourceManager.GetString("RecoveryProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recovery profile is comleted.
+        /// </summary>
+        public static string RecoveryProfileCompleted {
+            get {
+                return ResourceManager.GetString("RecoveryProfileCompleted", resourceCulture);
             }
         }
         
