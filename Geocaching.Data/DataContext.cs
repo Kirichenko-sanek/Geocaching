@@ -42,7 +42,7 @@ namespace Geocaching.Data
 
         }
 
-        private class GeocachingInitializer : DropCreateDatabaseAlways<DataContext>
+        private class GeocachingInitializer : CreateDatabaseIfNotExists<DataContext>
         {
             protected override void Seed(DataContext context)
             {

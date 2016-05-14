@@ -32,10 +32,6 @@ namespace Geocaching.CW.Installers
             container.Register(Component.For<DataContext>().LifestyleSingleton());
             container.Register(Component.For(typeof(IRepository<>)).ImplementedBy(typeof(Repository<>)).LifestyleTransient());           
             container.Register(
-                Component.For(typeof (IRolesRepository<>))
-                    .ImplementedBy(typeof (RolesRepository<>))
-                    .LifestyleTransient());
-            container.Register(
                 Component.For(typeof (IUserRepository<>)).ImplementedBy(typeof (UserRepository<>)).LifestyleTransient());
             container.Register(
                 Component.For(typeof (IPhotoOfUserRepository<>))

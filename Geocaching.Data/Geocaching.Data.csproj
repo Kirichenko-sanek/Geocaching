@@ -67,7 +67,6 @@
     <Compile Include="Repository\PhotoOfCachesRepository.cs" />
     <Compile Include="Repository\PhotoOfUserRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
-    <Compile Include="Repository\RolesRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

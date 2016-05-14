@@ -63,7 +63,6 @@
     <Compile Include="Repository\IPhotoOfCachesRepository.cs" />
     <Compile Include="Repository\IPhotoOfUserRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\IRolesRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Validator\IValidator.cs" />
   </ItemGroup>
