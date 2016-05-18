@@ -100,12 +100,12 @@ namespace Geocaching.Data
                     },
                     new Photo()
                     {
-                        name = "/Images/Cache/123.jpg",
+                        name = "/Images/Cache/1.jpg",
                         date = DateTime.Now
                     },
                     new Photo()
                     {
-                        name = "/Images/Cache/123.jpg",
+                        name = "/Images/Cache/2.jpg",
                         date = DateTime.Now
                     },
                     new Photo()
@@ -117,7 +117,12 @@ namespace Geocaching.Data
                     {
                         name = "/Images/Account/22.jpg",
                         date = DateTime.Now
-                    }
+                    },
+                    new Photo()
+                    {
+                        name = "/Images/Cache/3.jpg",
+                        date = DateTime.Now
+                    },
 
                 };
                 foreach (var photo in photos) context.Photos.Add(photo);
@@ -155,6 +160,14 @@ namespace Geocaching.Data
                 {
                     new Address()
                     {
+                        longitude = 36.290417,
+                        latitude = 50.042919,
+                        country = "Ukraine",
+                        region = "Kharkov region",
+                        city = "Kharkiv"
+                    },
+                    new Address()
+                    {
                         longitude = 36.2913754,
                         latitude = 50.04302158,
                         country = "Ukraine",
@@ -172,16 +185,16 @@ namespace Geocaching.Data
                         id_user = 1,
                         id_address = 1,
                         name = "KHAI",
-                        description = "My university. My university. My university. My university. My university. My university. My university. My university. My university. My university. My university.",
+                        description = "Контейнер расположен под правым колесом самолёта. Внутри контейнера находятся небольшие предметы для обмена. Внутри контейнера есть блокнот и карандаш. Приятного приключения))",
                         date_of_apperance = DateTime.Now,
                         date_of_last_visit = DateTime.Now,                     
                     },
                     new Cache()
                     {
                         id_user = 2,
-                        id_address = 1,
-                        name = "KHAI111",
-                        description = "My university. My university. My university. My university. My university. My university. My university. My university. My university. My university. My university.",
+                        id_address = 2,
+                        name = "KHAI",
+                        description = "Тайник расположен в холе радио корпуса. Распологается в третьем слева горшке для цветов. Внутри ты найдёш пластиклвый контейнер с приятным сюрпризом. Не забудь оставить что  нибуть на память",
                         date_of_apperance = DateTime.Now,
                         date_of_last_visit = DateTime.Now,
                     }
@@ -204,7 +217,7 @@ namespace Geocaching.Data
                     new PhotoOfCaches()
                     {
                         id_cache = 2,
-                        id_photo = 3
+                        id_photo = 6
                     }
                 };
                 foreach (var photoCache in photosOfCaches) context.PhotoOfCaches.Add(photoCache);
@@ -214,16 +227,16 @@ namespace Geocaching.Data
                 {
                     new Comment()
                     {
-                        id_user = 1,
+                        id_user = 2,
                         id_cache = 1,
-                        description = "Cache",
+                        description = "Отличный тайник.",
                         date = DateTime.Now
                     },
                     new Comment()
                     {
                         id_user = 1,
                         id_cache = 1,
-                        description = "Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache Cache",
+                        description = "Не забываёте отмечаться в блокноте)",
                         date = DateTime.Now
                     },
                 };

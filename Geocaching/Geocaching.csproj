@@ -267,7 +267,10 @@
     <Content Include="Images\Account\11.jpg" />
     <Content Include="Images\Account\22.jpg" />
     <Content Include="Images\Account\images.jpg" />
+    <Content Include="Images\Cache\1.jpg" />
     <Content Include="Images\Cache\123.jpg" />
+    <Content Include="Images\Cache\2.jpg" />
+    <Content Include="Images\Cache\3.jpg" />
     <Content Include="Scripts\bootstrap-progressbar.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
