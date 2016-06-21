@@ -88,6 +88,7 @@ namespace Geocaching.BL.Manager
         public void RecoveryUser(T entity)
         {
             entity.is_deleted = false;
+            entity.is_activated = true;
             _userRepository.Update(entity);
             _userRepository.Save();
         }
